@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗳️ **PROJECT E - Cebu Institute of Technology University SSG Elections Website** 🗳️
 
-## Getting Started
+**2025 - Confidential**
 
-First, run the development server:
+## 📜 **Description**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**PROJECT E** is an interactive and informative website designed for the **Cebu Institute of Technology University**'s **SSG (Student Government)** Elections. The platform allows students to learn about candidates, their platforms, achievements, and other relevant details. It also features a countdown timer to voting day, a live voting tally, and an engaging comparison tool to help voters make informed decisions. With a clean, user-friendly interface, PROJECT E ensures transparency and accessibility for all students participating in the election process.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 **Tech Stack**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Frontend:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- NextJS
 
-## Learn More
+**Backend:**
 
-To learn more about Next.js, take a look at the following resources:
+- SupaBase
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📜 **Pages Overview**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. **Candidates Info Page**
 
-## Deploy on Vercel
+- 🖼️ Picture
+- 🏷️ Name
+- 🗳️ Partylist
+- 🔢 Number
+- 🏆 Achievements and Attainments
+- 📱 Social Media Links (FB, IG, TikTok, etc.)
+- ⚖️ Compare Candidates Tool by Stances (Side-by-side comparison)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. **Interview Checklist**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Social Media Links
+- [ ] Tagline
+- [ ] Platform
+- [ ] Achievements & Attainments
+- [ ] Orgs Endorsed
+
+### 3. **Homepage**
+
+- ⏳ Countdown Timer (To voting day/result announcement)
+- 🌟 Featured Candidate of the Day (Randomized spotlight with their pic and platform)
+- 🗓️ Election Timeline / Milestones (Filing, Campaign Period, Debate, Voting)
+- 🏅 Leaderboard for Engagement (Candidates with most viewed profiles, etc.)
+- 📊 Voting for the Day (Random Candidates)
+- 📰 Latest News (Shameless plug ttsp embedded - 3 latest)
+
+### 4. **Stats Page**
+
+- 🗳️ Votes Cast (Live Tally After Voting Closes – If allowed)
+- 🔝 Top 5 Viewed Candidates
+
+### 5. **Vote**
+
+- 🏛️ Choose Partylist
+- 🧑‍⚖️ Choose Position
+- 👤 Choose Candidate
+
+### 6. **FAQ**
+
+- ❓ How to Vote?
+- ❓ Where to Vote?
+- ❓ What are the partylists?
+- ❓ When will the election voting start?
+
+### 7. **Support Us**
+
+- 💵 Money Link
+- 📝 Report an Issue / Feedback Form (Broken features, unfair practices, etc.)
+- 📜 Election Rules and Guidelines (PDF or link)
+
+---
+
+## 👨‍💻 **Branch Naming Convention**
+
+### Frontend
+
+- `frontend/main` – Main branch for frontend development
+- `frontend/feature/<feature-name>` – Feature branches for frontend tasks
+- `frontend/bugfix/<bug-name>` – Bugfix branches for frontend issues
+
+### Backend
+
+- `backend/main` – Main branch for backend development
+- `backend/feature/<feature-name>` – Feature branches for backend tasks
+- `backend/bugfix/<bug-name>` – Bugfix branches for backend issues
+
+---
+
+## ✍️ **Contributors**
+
+- **Tristan James Tolentino** – Project Manager, Web QA
+- **Adrian Sajulga** – Frontend Developer
+- **Slamm Khelmer A. Luab** – Frontend Developer
+- **Nicolo Porter** – Frontend Developer
+- **Julia Laine Segundo** – Frontend Developer
+- **Derrick Binangbang** – Backend Developer
+- **Gelo Cadavos** – Backend Developer
+
+---
+
+## 📄 **License**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
