@@ -8,13 +8,21 @@
 
 ## 🔧 **Tech Stack**
 
-**Frontend:**
+For the development of the SSG Elections 2025 platform, our team utilized a modern and efficient web development stack, informally referred to in the developer community as the “**SHIT** stack”—an acronym representing:
 
-- NextJS
+- **S** – **Supabase** (Backend)
+- **H** – **Hosting** (Vercel)
+- **I** – **Interface** (Next.js)
+- **T** – **TypeScript/TailwindCSS** (Frontend)
 
-**Backend:**
+This combination was carefully selected to meet the project's requirements for speed, scalability, and maintainability.
 
-- SupaBase
+- **Supabase** was employed as the backend solution, providing real-time database capabilities, authentication, and API support.
+- **Vercel** was chosen for its reliable and globally distributed hosting infrastructure, enabling seamless deployment and continuous integration.
+- The user interface was developed using **Next.js**, a robust React framework known for its performance and server-side rendering features.
+- **TypeScript** was adopted for type safety and code reliability, while **TailwindCSS** was used to ensure a consistent and responsive design system.
+
+Together, this stack provided a strong foundation for building a secure, user-centric, and future-ready election system.
 
 ## 📜 **Pages Overview**
 
