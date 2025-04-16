@@ -8,6 +8,7 @@
 
 ## 🔧 **Tech Stack**
 
+<<<<<<< HEAD
 For the development of the SSG Elections 2025 platform, our team utilized a modern and efficient web development stack, informally referred to in the developer community as the “**NeNeng B** stack”—an acronym representing:
 
 - **Ne** – **Next.js** (Frontend)
@@ -17,15 +18,19 @@ For the development of the SSG Elections 2025 platform, our team utilized a mode
 - **N** - **Neat UI with TailwindCSS**
 - **G** – **Generics and Type Safety with TypeScript**
 - **B** – **Backend-as-a-Service with Supabase**
+=======
+To bring the SSG Elections 2025 platform to life, our team proudly built on the **NeNeng B Stack**—a lighthearted but powerful blend of modern web technologies. **NeNeng B** stands for:
 
-This combination was carefully selected to meet the project's requirements for speed, scalability, and maintainability.
+- **Ne** – **Next.js** (Frontend)
+- **Ne** – **NestJS** (Backend)
+- **N** – **Node.js** (Under the hood of both)
+- **E** – **Edge Hosting** via **Vercel**
+- **N** – **Neat UI** with **TailwindCSS**
+- **G** – **Generics and Type Safety** with **TypeScript**
+- **B** – **Backend-as-a-Service** with **Supabase**
+>>>>>>> e1239b8117d8390bf5d151988888e0a5446f41d5
 
-- **Supabase** was employed as the backend solution, providing real-time database capabilities, authentication, and API support.
-- **Vercel** was chosen for its reliable and globally distributed hosting infrastructure, enabling seamless deployment and continuous integration.
-- The user interface was developed using **Next.js**, a robust React framework known for its performance and server-side rendering features.
-- **TypeScript** was adopted for type safety and code reliability, while **TailwindCSS** was used to ensure a consistent and responsive design system.
-
-Together, this stack provided a strong foundation for building a secure, user-centric, and future-ready election system.
+This stack gave us everything we needed to develop a robust, scalable, and secure platform, while keeping our codebase clean, our deployment seamless, and our UI beautifully responsive. Just like its name, the **NeNeng B Stack** is unexpectedly powerful, full of charm, and built to deliver results.
 
 ## 📜 **Pages Overview**
 
