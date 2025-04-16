@@ -8,17 +8,6 @@
 
 ## 🔧 **Tech Stack**
 
-<<<<<<< HEAD
-For the development of the SSG Elections 2025 platform, our team utilized a modern and efficient web development stack, informally referred to in the developer community as the “**NeNeng B** stack”—an acronym representing:
-
-- **Ne** – **Next.js** (Frontend)
-- **Ne** – **NestJS** (Backend)
-- **N** - **Node.js**
-- **E** - **Edge Hosting via Vercel**
-- **N** - **Neat UI with TailwindCSS**
-- **G** – **Generics and Type Safety with TypeScript**
-- **B** – **Backend-as-a-Service with Supabase**
-=======
 To bring the SSG Elections 2025 platform to life, our team proudly built on the **NeNeng B Stack**—a lighthearted but powerful blend of modern web technologies. **NeNeng B** stands for:
 
 - **Ne** – **Next.js** (Frontend)
@@ -28,7 +17,6 @@ To bring the SSG Elections 2025 platform to life, our team proudly built on the 
 - **N** – **Neat UI** with **TailwindCSS**
 - **G** – **Generics and Type Safety** with **TypeScript**
 - **B** – **Backend-as-a-Service** with **Supabase**
->>>>>>> e1239b8117d8390bf5d151988888e0a5446f41d5
 
 This stack gave us everything we needed to develop a robust, scalable, and secure platform, while keeping our codebase clean, our deployment seamless, and our UI beautifully responsive. Just like its name, the **NeNeng B Stack** is unexpectedly powerful, full of charm, and built to deliver results.
 
