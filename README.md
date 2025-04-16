@@ -8,12 +8,15 @@
 
 ## 🔧 **Tech Stack**
 
-For the development of the SSG Elections 2025 platform, our team utilized a modern and efficient web development stack, informally referred to in the developer community as the “**SHIT** stack”—an acronym representing:
+For the development of the SSG Elections 2025 platform, our team utilized a modern and efficient web development stack, informally referred to in the developer community as the “**NeNeng B** stack”—an acronym representing:
 
-- **S** – **Supabase** (Backend)
-- **H** – **Hosting** (Vercel)
-- **I** – **Interface** (Next.js)
-- **T** – **TypeScript/TailwindCSS** (Frontend)
+- **Ne** – **Next.js** (Frontend)
+- **Ne** – **NestJS** (Backend)
+- **N** - **Node.js**
+- **E** - **Edge Hosting via Vercel**
+- **N** - **Neat UI with TailwindCSS**
+- **G** – **Generics and Type Safety with TypeScript**
+- **B** – **Backend-as-a-Service with Supabase**
 
 This combination was carefully selected to meet the project's requirements for speed, scalability, and maintainability.
 
@@ -58,20 +61,14 @@ Together, this stack provided a strong foundation for building a secure, user-ce
 - 🗳️ Votes Cast (Live Tally After Voting Closes – If allowed)
 - 🔝 Top 5 Viewed Candidates
 
-### 5. **Vote**
-
-- 🏛️ Choose Partylist
-- 🧑‍⚖️ Choose Position
-- 👤 Choose Candidate
-
-### 6. **FAQ**
+### 5. **FAQ**
 
 - ❓ How to Vote?
 - ❓ Where to Vote?
 - ❓ What are the partylists?
 - ❓ When will the election voting start?
 
-### 7. **Support Us**
+### 6. **Support Us**
 
 - 💵 Money Link
 - 📝 Report an Issue / Feedback Form (Broken features, unfair practices, etc.)
@@ -98,6 +95,7 @@ Together, this stack provided a strong foundation for building a secure, user-ce
 ## ✍️ **Contributors**
 
 - **Tristan James Tolentino** – Project Manager, Web QA
+- **Simon Escaño** - UI/UX Designer
 - **Adrian Sajulga** – Frontend Developer
 - **Slamm Khelmer A. Luab** – Frontend Developer
 - **Nicolo Porter** – Frontend Developer
