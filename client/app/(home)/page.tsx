@@ -10,10 +10,39 @@ import {
   faFire,
 } from "@fortawesome/free-solid-svg-icons";
 import { CountdownTimer } from "@/components/home/countdown";
+import Image from "next/image";
+
+type PartyList = "United" | "Just" | "Independent";
+interface Candidate {
+  name: string;
+  votes: number;
+  position: string;
+  partyList: PartyList;
+}
 
 export default function HomePage() {
-  // NOTE: Replace this with the actual voting start time
+  // NOTE: Replace this with the data
   const targetDate = new Date("2025-04-30T08:00:00"); // Replace with your voting start time
+  const votingForTheDayData: Candidate[] = [
+    {
+      name: "Adrian Sajulga",
+      votes: 120,
+      position: "President",
+      partyList: "United",
+    },
+    {
+      name: "Adrian Sajulga",
+      votes: 120,
+      position: "President",
+      partyList: "Just",
+    },
+    {
+      name: "Adrian Sajulga",
+      votes: 120,
+      position: "President",
+      partyList: "United",
+    },
+  ];
 
   return (
     <main className="flex items-center justify-center w-full p-6">
@@ -28,13 +57,59 @@ export default function HomePage() {
                 <FontAwesomeIcon icon={faHourglass} className="fa-fw" />
                 Voting starts in
               </div>
-
               <CountdownTimer time={targetDate} />
             </section>
 
-            <div className="bg-red-600 h-40 rounded-xl p-4 text-white flex items-center justify-center">
-              Voting for the Day
-            </div>
+            <section className="border rounded-lg bg-gradient-to-br from-[#EF4444] to-[#340A0A] p-4">
+              <div className="flex items-center gap-2 text-lg font-medium mb-2">
+                <FontAwesomeIcon icon={faRectangleList} className="fa-fw" />
+                Voting for the day
+              </div>
+
+              <div>
+                {votingForTheDayData.map((candidate, index) => {
+                  const bgImage =
+                    candidate.partyList === "United"
+                      ? "bg-[url(/party-list/united.jpg)]"
+                      : candidate.partyList === "Just"
+                        ? "bg-[url(/party-list/just.jpg)]"
+                        : "bg-neutral-800";
+
+                  return (
+                    <div
+                      key={index}
+                      className="relative overflow-hidden rounded-lg mb-2 "
+                    >
+                      <div
+                        className={`absolute inset-0 ${bgImage} bg-center bg-cover`}
+                      />
+                      <div className="absolute inset-0 bg-black opacity-40" />
+
+                      <div className="relative z-10 flex items-center justify-between p-4">
+                        <div className="space-y-1">
+                          <p className="rounded-lg bg-accent px-2 py-1 w-fit">
+                            {candidate.votes} votes
+                          </p>
+                          <p className="uppercase leading-normal m-0 text-4xl font-bebas">
+                            {candidate.name}
+                          </p>
+                          <p className="italic leading-normal text-sm">
+                            For {candidate.position}
+                          </p>
+                        </div>
+
+                        <Image
+                          src={"/candidates/duterte-placeholder.png"}
+                          alt={"SSG Logo"}
+                          width={100}
+                          height={100}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
 
             <div className="bg-red-700 h-40 rounded-xl p-4 text-white flex items-center justify-center">
               Latest News
