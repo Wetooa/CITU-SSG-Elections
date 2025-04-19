@@ -8,9 +8,9 @@ export const PARTYLIST_TO_IMAGE: Record<PartyList, string> = {
 };
 
 export const PARTYLIST_TO_ICON: Record<PartyList, string> = {
-  United: "/icon/united.svg",
-  Just: "/icon/just.svg",
-  Independent: "/icon/united.svg",
+  United: "/icons/united.svg",
+  Just: "/icons/just.svg",
+  Independent: "/icons/united.svg",
 };
 
 export const CANDIDATE_TO_IMAGE: Record<string, string> = {

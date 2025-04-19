@@ -1,3 +1,4 @@
+import ImageDiv from "@/components/utils/image-div";
 import {
   CANDIDATE_TO_IMAGE,
   PARTYLIST_TO_ICON,
@@ -30,23 +31,17 @@ export default function CandidatesPage() {
         const partyListIcon = PARTYLIST_TO_ICON[candidate.partyList];
 
         return (
-          <div
+          <ImageDiv
+            bgImage={bgImage}
             key={index}
-            className="relative border border-[#F98F8F80] rounded-lg bg-gradient-to-tr from-[#5E0808] to-[#141415] text-white"
+            className="flex items-end justify-between"
           >
-            <div
-              className={`absolute inset-0 bg-[url(${bgImage})] bg-center bg-cover`}
-            />
-            <div className="absolute inset-0 bg-black opacity-40" />
-
-            {/* Left image */}
-            <div className="z-10 flex items-center justify-between p-4">
+            <>
               <Image
                 src={candidateImage}
                 alt={candidate.name}
                 width={100}
                 height={100}
-                className="rounded-full object-cover"
               />
 
               {/* Candidate details */}
@@ -64,10 +59,9 @@ export default function CandidatesPage() {
                 alt={candidate.partyList}
                 width={100}
                 height={100}
-                className="rounded-full object-cover"
               />
-            </div>
-          </div>
+            </>
+          </ImageDiv>
         );
       })}
     </div>
