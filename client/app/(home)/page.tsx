@@ -1,35 +1,25 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CountdownTimer } from "@/components/home/countdown";
+import ElectionTimeline from "@/components/home/timeline";
+import ImageDiv from "@/components/utils/image-div";
+import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_IMAGE } from "@/utils/consts";
+import { CandidateWithVotes, Leaderboard } from "@/utils/types";
 import {
-  faHourglass,
-  faStar,
-  faRectangleList,
-  faNewspaper,
   faCalendarDays,
   faFire,
+  faHourglass,
+  faNewspaper,
+  faRectangleList,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import { CountdownTimer } from "@/components/home/countdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import ElectionTimeline from "@/components/home/timeline";
-
-type PartyList = "United" | "Just" | "Independent";
-
-interface Candidate {
-  name: string;
-  votes: number;
-  position: string;
-  partyList: PartyList;
-}
-
-interface Leaderboard extends Candidate {
-  award: string;
-}
 
 export default function HomePage() {
   // NOTE: Replace this with the data
   const targetDate = new Date("2025-04-30T08:00:00"); // Replace with your voting start time
-  const votingForTheDayData: Candidate[] = [
+  const votingForTheDayData: CandidateWithVotes[] = [
     {
       name: "Adrian Sajulga",
       votes: 120,
@@ -49,7 +39,7 @@ export default function HomePage() {
       partyList: "United",
     },
   ];
-  const candidateOfTheDayData: Candidate = {
+  const candidateOfTheDayData: CandidateWithVotes = {
     name: "Adrian Sajulga",
     votes: 120,
     position: "President",
@@ -58,26 +48,17 @@ export default function HomePage() {
   const leaderboardData: Leaderboard[] = [
     {
       name: "Adrian Sajulga",
-      votes: 120,
       position: "President",
       partyList: "United",
       award: "Most Viewed",
     },
     {
       name: "Adrian Sajulga",
-      votes: 120,
       position: "President",
       partyList: "United",
       award: "Most Viewed",
     },
   ];
-
-  // FIX: Fix later for independent party list
-  const PARTYLIST_TO_IMAGE: Record<PartyList, string> = {
-    United: "/party-list/united.jpg",
-    Just: "/party-list/just.jpg",
-    Independent: "/party-list/united.jpg",
-  };
 
   return (
     <main className="flex items-center justify-center w-full p-6">
@@ -104,19 +85,17 @@ export default function HomePage() {
                 Voting for the day
               </div>
 
-              <div>
+              <div className="space-y-2">
                 {votingForTheDayData.map((candidate, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="relative overflow-hidden rounded-lg mb-2 "
-                    >
-                      <div
-                        className={`absolute inset-0 bg-[url(${PARTYLIST_TO_IMAGE[candidate.partyList]})] bg-center bg-cover`}
-                      />
-                      <div className="absolute inset-0 bg-black opacity-40" />
+                  const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList];
 
-                      <div className="relative z-10 flex items-end justify-between">
+                  return (
+                    <ImageDiv
+                      bgImage={bgImage}
+                      key={index}
+                      className="flex items-end justify-between"
+                    >
+                      <>
                         <div className="space-y-1 p-4">
                           <p className="rounded-lg bg-accent px-2 py-1 w-fit">
                             {candidate.votes} votes
@@ -130,13 +109,13 @@ export default function HomePage() {
                         </div>
 
                         <Image
-                          src={"/candidates/duterte-placeholder.png"}
+                          src={CANDIDATE_TO_IMAGE[candidate.name]}
                           alt={"SSG Logo"}
                           width={100}
                           height={100}
                         />
-                      </div>
-                    </div>
+                      </>
+                    </ImageDiv>
                   );
                 })}
               </div>
@@ -158,15 +137,11 @@ export default function HomePage() {
                 Candidate of the Day
               </div>
 
-              <div className="relative overflow-hidden rounded-lg mb-2 ">
-                <div
-                  className={`absolute inset-0 bg-[url(${
-                    PARTYLIST_TO_IMAGE[candidateOfTheDayData.partyList]
-                  })] bg-center bg-cover`}
-                />
-                <div className="absolute inset-0 bg-black opacity-40" />
-
-                <div className="relative z-10 flex items-end justify-between">
+              <ImageDiv
+                bgImage={PARTYLIST_TO_IMAGE[candidateOfTheDayData.partyList]}
+                className="flex items-end justify-between"
+              >
+                <>
                   <div className="space-y-1 p-4">
                     <p className="uppercase leading-16 m-0 text-7xl font-bebas">
                       {candidateOfTheDayData.name}
@@ -177,13 +152,13 @@ export default function HomePage() {
                   </div>
 
                   <Image
-                    src={"/candidates/duterte-placeholder.png"}
+                    src={CANDIDATE_TO_IMAGE[candidateOfTheDayData.name]}
                     alt={"SSG Logo"}
                     width={100}
                     height={100}
                   />
-                </div>
-              </div>
+                </>
+              </ImageDiv>
             </section>
 
             <section className="border rounded-lg p-4 bg-gradient-to-tr from-[#18181B] to-[#FF6969]">
@@ -206,21 +181,15 @@ export default function HomePage() {
 
               <div className="flex gap-4 overflow-x-auto pb-2">
                 {leaderboardData.map((candidate, index) => (
-                  <div
+                  <ImageDiv
+                    bgImage={
+                      PARTYLIST_TO_IMAGE[candidateOfTheDayData.partyList]
+                    }
                     key={index}
-                    className="relative rounded-xl overflow-hidden shadow-lg flex-shrink-0"
+                    className="flex items-end justify-between"
                   >
-                    <div
-                      className="absolute inset-0 bg-center bg-cover"
-                      style={{
-                        backgroundImage: `url(${PARTYLIST_TO_IMAGE[candidate.partyList]})`,
-                      }}
-                    />
-
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-
-                    <div className="relative z-10 flex items-end justify-between p-4 h-full">
-                      <div className="space-y-1">
+                    <>
+                      <div className="space-y-1 p-2">
                         <p className="rounded bg-white text-accent text-xs px-2 py-1 w-fit font-semibold">
                           {candidate.award}
                         </p>
@@ -233,14 +202,13 @@ export default function HomePage() {
                       </div>
 
                       <Image
-                        src="/candidates/duterte-placeholder.png"
+                        src={CANDIDATE_TO_IMAGE[candidate.name]}
                         alt={`${candidate.name} image`}
                         width={80}
                         height={80}
-                        className="rounded-full border border-white object-cover"
                       />
-                    </div>
-                  </div>
+                    </>
+                  </ImageDiv>
                 ))}
               </div>
             </section>
