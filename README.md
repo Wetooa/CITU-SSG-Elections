@@ -1,7 +1,5 @@
 # 🗳️ **PROJECT E - Cebu Institute of Technology University SSG Elections Website** 🗳️
 
-**2025 - Confidential**
-
 ## 📜 **Description**
 
 **PROJECT E** is an interactive and informative website designed for the **Cebu Institute of Technology University**'s **SSG (Student Government)** Elections. The platform allows students to learn about candidates, their platforms, achievements, and other relevant details. It also features a countdown timer to voting day, a live voting tally, and an engaging comparison tool to help voters make informed decisions. With a clean, user-friendly interface, PROJECT E ensures transparency and accessibility for all students participating in the election process.
