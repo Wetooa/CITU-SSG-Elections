@@ -36,6 +36,7 @@ export default function RootLayout({
         className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased min-h-screen min-w-screen bg-gradient-to-b from-background to-[#141415] text-white drop-shadow-2xl flex flex-col`}
       >
         <Navbar />
+
         <main className="flex-1 flex items-center justify-center w-full p-6">
           <div className="w-full max-w-[1000px]">{children}</div>
         </main>
