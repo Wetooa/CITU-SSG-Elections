@@ -60,7 +60,7 @@ export default function HomePage() {
               <CountdownTimer time={targetDate} />
             </section>
 
-            <section className="border rounded-lg bg-gradient-to-br from-[#EF4444] to-[#340A0A] p-4">
+            <section className="border rounded-lg p-4">
               <div className="flex items-center gap-2 text-lg font-medium mb-2">
                 <FontAwesomeIcon icon={faRectangleList} className="fa-fw" />
                 Voting for the day
@@ -85,8 +85,8 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-black opacity-40" />
 
-                      <div className="relative z-10 flex items-center justify-between p-4">
-                        <div className="space-y-1">
+                      <div className="relative z-10 flex items-end justify-between">
+                        <div className="space-y-1 p-4">
                           <p className="rounded-lg bg-accent px-2 py-1 w-fit">
                             {candidate.votes} votes
                           </p>
@@ -111,9 +111,12 @@ export default function HomePage() {
               </div>
             </section>
 
-            <div className="bg-red-700 h-40 rounded-xl p-4 text-white flex items-center justify-center">
-              Latest News
-            </div>
+            <section className="border rounded-lg bg-gradient-to-br from-[#EF4444] to-[#340A0A] p-4">
+              <div className="flex items-center gap-2 text-lg font-medium mb-2">
+                <FontAwesomeIcon icon={faNewspaper} className="fa-fw" />
+                Latest News
+              </div>
+            </section>
           </div>
 
           {/* Right Column */}

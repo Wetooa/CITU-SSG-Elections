@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       {/* FIX: Change this to dynamic color variables later */}
       <body
-        className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased min-h-screen min-w-screen h-screen w-screen bg-gradient-to-b from-background to-[#141415] text-white drop-shadow-2xl flex flex-col`}
+        className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased min-h-screen min-w-screen bg-gradient-to-b from-background to-[#141415] text-white drop-shadow-2xl flex flex-col`}
       >
         <Navbar />
         <div className="flex-1">{children}</div>
