@@ -38,7 +38,7 @@ export default function RootLayout({
         <Navbar />
 
         <main className="flex-1 flex items-center justify-center w-full p-6">
-          <div className="w-full max-w-[1000px]">{children}</div>
+          <div className="w-full max-w-[1200px]">{children}</div>
         </main>
       </body>
     </html>
