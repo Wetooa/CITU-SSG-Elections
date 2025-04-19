@@ -77,15 +77,17 @@ This stack gave us everything we needed to develop a robust, scalable, and secur
 
 ## 👨‍💻 **Branch Naming Convention**
 
+### Main
+
+- `dev` – Main branch for development
+
 ### Frontend
 
-- `frontend/main` – Main branch for frontend development
 - `frontend/feature/<feature-name>` – Feature branches for frontend tasks
 - `frontend/bugfix/<bug-name>` – Bugfix branches for frontend issues
 
 ### Backend
 
-- `backend/main` – Main branch for backend development
 - `backend/feature/<feature-name>` – Feature branches for backend tasks
 - `backend/bugfix/<bug-name>` – Bugfix branches for backend issues
 
