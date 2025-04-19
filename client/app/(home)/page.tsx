@@ -199,46 +199,49 @@ export default function HomePage() {
             </section>
 
             <section className="border rounded-lg p-4">
-              <div className="flex items-center gap-2 text-lg font-medium mb-2">
+              <div className="flex items-center gap-2 text-lg font-medium mb-4 text-white">
                 <FontAwesomeIcon icon={faFire} className="text-accent" />
                 Leaderboard for Engagement
               </div>
 
-              <div className="flex">
-                {leaderboardData.map((candidate, index) => {
-                  return (
+              <div className="flex gap-4 overflow-x-auto pb-2">
+                {leaderboardData.map((candidate, index) => (
+                  <div
+                    key={index}
+                    className="relative rounded-xl overflow-hidden shadow-lg flex-shrink-0"
+                  >
                     <div
-                      key={index}
-                      className="relative overflow-hidden rounded-lg mb-2 "
-                    >
-                      <div
-                        className={`absolute inset-0 bg-[url(${PARTYLIST_TO_IMAGE[candidate.partyList]})] bg-center bg-cover`}
-                      />
-                      <div className="absolute inset-0 bg-black opacity-40" />
+                      className="absolute inset-0 bg-center bg-cover"
+                      style={{
+                        backgroundImage: `url(${PARTYLIST_TO_IMAGE[candidate.partyList]})`,
+                      }}
+                    />
 
-                      <div className="relative z-10 flex items-end justify-between">
-                        <div className="space-y-1 p-4">
-                          <p className="rounded-lg bg-white text-accent font-xs px-2 py-1 w-fit">
-                            {candidate.award}
-                          </p>
-                          <p className="uppercase leading-normal m-0 text-4xl font-bebas">
-                            {candidate.name}
-                          </p>
-                          <p className="italic leading-normal text-sm">
-                            For {candidate.position}
-                          </p>
-                        </div>
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-                        <Image
-                          src={"/candidates/duterte-placeholder.png"}
-                          alt={"SSG Logo"}
-                          width={100}
-                          height={100}
-                        />
+                    <div className="relative z-10 flex items-end justify-between p-4 h-full">
+                      <div className="space-y-1">
+                        <p className="rounded bg-white text-accent text-xs px-2 py-1 w-fit font-semibold">
+                          {candidate.award}
+                        </p>
+                        <p className="uppercase text-white text-3xl font-bebas">
+                          {candidate.name}
+                        </p>
+                        <p className="italic text-white text-sm">
+                          For {candidate.position}
+                        </p>
                       </div>
+
+                      <Image
+                        src="/candidates/duterte-placeholder.png"
+                        alt={`${candidate.name} image`}
+                        width={80}
+                        height={80}
+                        className="rounded-full border border-white object-cover"
+                      />
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
             </section>
           </div>
