@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Bebas_Neue } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar/navbar";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased min-h-screen min-w-screen h-screen w-screen bg-gradient-to-b from-[#5E0808] to-[#141415]`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
