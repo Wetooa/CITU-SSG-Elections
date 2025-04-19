@@ -1,6 +1,6 @@
 import ImageDiv from "@/components/utils/image-div";
-import { fadeUp } from "@/utils/animations";
-import { PARTYLIST_TO_IMAGE, CANDIDATE_TO_IMAGE } from "@/utils/consts";
+import { fadeDown } from "@/utils/animations";
+import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_IMAGE } from "@/utils/consts";
 import { CandidateWithVotes } from "@/utils/types";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,7 @@ export default function CandidateOfTheDaySection() {
   };
 
   return (
-    <motion.section className="border rounded-lg p-4" variants={fadeUp}>
+    <motion.section className="border rounded-lg p-4" variants={fadeDown}>
       <div className="flex items-center gap-2 text-lg font-medium mb-2">
         <FontAwesomeIcon icon={faStar} className="text-accent" />
         Candidate of the Day
