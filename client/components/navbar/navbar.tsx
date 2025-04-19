@@ -23,7 +23,7 @@ export default function Navbar() {
 
         return (
           <Link
-            className={`${buttonVariants({ variant: "link" })} ${isActive ? "underline" : ""}`}
+            className={`${buttonVariants({ variant: "link" })}, ${isActive ? "underline  " : ""} text-white underline-offset-8 decoration-border`}
             key={index}
             href={url}
           >

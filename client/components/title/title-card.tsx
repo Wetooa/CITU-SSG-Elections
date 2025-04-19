@@ -8,7 +8,7 @@ export default function TitleCard({
   className?: React.HTMLAttributes<HTMLDivElement>["className"];
 }) {
   return (
-    <div className={cn(className, "flex gap-2 items-center")}>
+    <div className={cn(className, "flex gap-2 h-full")}>
       <Image
         src={"/logos/SSG-logo.svg"}
         alt={"SSG Logo"}
@@ -16,7 +16,7 @@ export default function TitleCard({
         height={30}
       />
 
-      <Separator orientation="vertical" />
+      <Separator className="" orientation="vertical" />
 
       <Image
         src={"/logos/TTSP-logo.svg"}
