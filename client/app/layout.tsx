@@ -1,7 +1,11 @@
-import type { Metadata } from "next";
-import { DM_Sans, Bebas_Neue } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
+import type { Metadata } from "next";
+import { Bebas_Neue, DM_Sans } from "next/font/google";
+import "./globals.css";
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
