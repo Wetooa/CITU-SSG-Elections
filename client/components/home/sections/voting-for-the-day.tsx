@@ -1,5 +1,5 @@
 import ImageDiv from "@/components/utils/image-div";
-import { fadeUp } from "@/utils/animations";
+import { fadeLeft } from "@/utils/animations";
 import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_IMAGE } from "@/utils/consts";
 import { CandidateWithVotes } from "@/utils/types";
 import { faRectangleList } from "@fortawesome/free-solid-svg-icons";
@@ -30,7 +30,7 @@ export default function VotingForTheDaySection() {
   ];
 
   return (
-    <motion.section className="border rounded-lg p-4" variants={fadeUp}>
+    <motion.section className="border rounded-lg p-4" variants={fadeLeft}>
       <div className="flex items-center gap-2 text-lg font-medium mb-2">
         <FontAwesomeIcon icon={faRectangleList} className="text-accent" />
         Voting for the day

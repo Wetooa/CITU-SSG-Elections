@@ -29,56 +29,6 @@ export default function CandidatesPage() {
       position: "Vice President",
       partyList: "Just",
     },
-    {
-      name: "Adrian Sajulga",
-      position: "President",
-      partyList: "United",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "Vice President",
-      partyList: "Just",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "President",
-      partyList: "United",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "Vice President",
-      partyList: "Just",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "President",
-      partyList: "United",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "Vice President",
-      partyList: "Just",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "President",
-      partyList: "United",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "Vice President",
-      partyList: "Just",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "President",
-      partyList: "United",
-    },
-    {
-      name: "Adrian Sajulga",
-      position: "Vice President",
-      partyList: "Just",
-    },
   ];
 
   return (
