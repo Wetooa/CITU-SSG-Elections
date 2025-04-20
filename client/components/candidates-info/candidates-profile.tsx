@@ -41,14 +41,14 @@ export default function CandidatesProfileSection() {
       </div>
 
       {/* Profile Container */}
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-6"
+      <div className="flex flex-col h-full lg:flex-row justify-between items-center gap-6 rounded-lg "
         style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             }}>
         {/* Info and Banner */}
-        <div className="w-full p-6 rounded-md text-white relative">
+        <div className="w-full p-6 rounded-md text-white">
             <div className="flex items-center gap-4">
                 {/* Partylist Number */}
                 <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
@@ -98,8 +98,8 @@ export default function CandidatesProfileSection() {
       </div>
 
       {/* Image */}
-      <img src={candidateImage} alt={`${candidate.name}`} className="absolute right-0 bottom-0 h-full"/>
-
+      <img src={candidateImage} alt={`${candidate.name}`} 
+      className="absolute bottom-0 right-0 max-h-full h-[90%] sm:h-[85%] md:h-[80%] lg:h-[90%] xl:h-[95%] object-contain px-2"/>
     </motion.section>
   );
 }
