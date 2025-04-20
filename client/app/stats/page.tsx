@@ -29,12 +29,6 @@ export default function StatsPage() {
         position: 'Vice-President',
         partyList: 'Just',
       },
-      {
-        name: 'Adrian Sajulga',
-        votes: 762,
-        position: 'Vice-President',
-        partyList: 'United',
-      },
     ],
     Secretary: [
       {
