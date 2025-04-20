@@ -1,33 +1,32 @@
-import ImageDiv from "@/components/utils/image-div";
-import { fadeLeft } from "@/utils/animations";
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_IMAGE } from "@/utils/consts";
-import { CandidateWithVotes } from "@/utils/types";
-import { faRectangleList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { VotingCandidateCard } from '@/components/candidate-cards/voting-candidate-card'
+import { fadeLeft } from '@/utils/animations'
+import { PARTYLIST_TO_IMAGE } from '@/utils/consts'
+import { CandidateWithVotes } from '@/utils/types'
+import { faRectangleList } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { motion } from 'framer-motion'
 
 export default function VotingForTheDaySection() {
   const votingForTheDayData: CandidateWithVotes[] = [
     {
-      name: "Adrian Sajulga",
+      name: 'Adrian Sajulga',
       votes: 120,
-      position: "President",
-      partyList: "United",
+      position: 'President',
+      partyList: 'United',
     },
     {
-      name: "Adrian Sajulga",
+      name: 'Adrian Sajulga',
       votes: 120,
-      position: "President",
-      partyList: "Just",
+      position: 'President',
+      partyList: 'Just',
     },
     {
-      name: "Adrian Sajulga",
+      name: 'Adrian Sajulga',
       votes: 120,
-      position: "President",
-      partyList: "United",
+      position: 'President',
+      partyList: 'United',
     },
-  ];
+  ]
 
   return (
     <motion.section className="border rounded-lg p-4" variants={fadeLeft}>
@@ -38,46 +37,21 @@ export default function VotingForTheDaySection() {
 
       <div className="space-y-2">
         {votingForTheDayData.map((candidate, index) => {
-          const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList];
+          const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList]
 
           return (
-            <motion.div
+            <VotingCandidateCard
               key={index}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-            >
-              <ImageDiv
-                bgImage={bgImage}
-                className="flex items-end justify-between"
-              >
-                <>
-                  <div className="space-y-1 p-4">
-                    <p className="rounded-lg bg-accent px-2 py-1 w-fit">
-                      {candidate.votes} votes
-                    </p>
-                    <p className="uppercase leading-normal m-0 text-4xl font-bebas">
-                      {candidate.name}
-                    </p>
-                    <p className="italic leading-normal text-sm">
-                      For {candidate.position}
-                    </p>
-                  </div>
-
-                  <Image
-                    src={CANDIDATE_TO_IMAGE[candidate.name]}
-                    alt={candidate.name}
-                    width={100}
-                    height={100}
-                  />
-                </>
-              </ImageDiv>
-            </motion.div>
-          );
+              index={index}
+              bgImage={bgImage}
+              candidate={candidate}
+              isPhotoLeft={false}
+              showPosition={true}
+              isLongCard={false}
+            />
+          )
         })}
       </div>
     </motion.section>
-  );
+  )
 }
