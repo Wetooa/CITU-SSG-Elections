@@ -13,3 +13,13 @@ export interface CandidateWithVotes extends Candidate {
 export interface Leaderboard extends Candidate {
   award: string;
 }
+
+export interface CandidateProfile extends Candidate{
+  partyListNumber: number;
+  socials?:{
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+    tiktok?: string;
+  }
+}
