@@ -1,4 +1,4 @@
-import { VotingCandidateCard } from '@/components/voting-candidate-card'
+import { VotingCandidateCard } from '@/components/candidate-cards/voting-candidate-card'
 import { fadeLeft } from '@/utils/animations'
 import { PARTYLIST_TO_IMAGE } from '@/utils/consts'
 import { CandidateWithVotes } from '@/utils/types'
@@ -47,6 +47,7 @@ export default function VotingForTheDaySection() {
               candidate={candidate}
               isPhotoLeft={false}
               showPosition={true}
+              isLongCard={false}
             />
           )
         })}
