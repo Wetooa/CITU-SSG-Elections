@@ -8,19 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-export default function CandidatesProfileSection() {
-  const candidate: CandidateProfile = {
-    name: 'Adrian Sajulga',
-    position: 'Vice-President',
-    partyList: 'United',
-    partyListNumber: 32,
-    socials: {
-      facebook: 'adrian.sajulga',
-      instagram: 'adrian.sajulga',
-      tiktok: 'adrian.sajulga',
-    },
-  }
-
+export default function CandidatesProfileSection({ candidate }: { candidate: CandidateProfile }) {
   const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList]
   const partyListIcon = PARTYLIST_TO_ICON[candidate.partyList]
   const candidateImage = CANDIDATE_TO_IMAGE[candidate.name]
@@ -32,7 +20,7 @@ export default function CandidatesProfileSection() {
     >
       {/* Header */}
       <div className="flex items-center gap-2 text-lg font-medium mb-4">
-        <FontAwesomeIcon icon={faUser} className="text-red-400" />
+        <FontAwesomeIcon icon={faUser} className="text-accent" />
         Candidate Profile
       </div>
 
