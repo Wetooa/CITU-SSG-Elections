@@ -10,17 +10,21 @@ export class CandidatesController {
   async create(@Body() createCandidateDto: Candidate) {
     return await this.candidatesService.create(createCandidateDto);
   }
-  // GET all Candidates
-  // @Get()
-  // findAll() {
-  //   return this.candidatesService.findAll();
-  // }
-  // @Get("info/:query")
-  // search(@Param("query") query: string) {
-  //   if (!isNaN(Number(query))) {
-  //     return this.candidatesService.searchByBalotNum(+query);
-  //   } else {
-  //     return this.candidatesService.searchByName(query);
-  //   }
-  // }
+  //GET all Candidates
+  @Get()
+  async findAll() {
+    const result = await this.candidatesService.getAllCandidates();
+    return result;
+  }
+
+  @Get("info/:query")
+  async search(@Param("query") query: string) {
+    if (!isNaN(Number(query))) {
+      const candidate = await this.candidatesService.searchByBalotNum(+query);
+      return candidate;
+    } else {
+      const candidate = await this.candidatesService.searchByName(query);
+      return candidate;
+    }
+  }
 }

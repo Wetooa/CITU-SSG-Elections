@@ -26,6 +26,35 @@ let CandidatesService = class CandidatesService {
         const result = await newCandidate.save();
         return result.id;
     }
+    async getAllCandidates() {
+        const result = await this.candidatesModel.find().exec();
+        return result;
+    }
+    async searchByBalotNum(balota_number) {
+        const result = await this.candidatesModel.findOne({ balota_number }).exec();
+        if (!result) {
+            throw new common_1.NotFoundException("No Candidate with that Balot Number");
+        }
+        return result;
+    }
+    async searchByName(name) {
+        const result = await this.candidatesModel
+            .findOne({
+            name: { $regex: name, $options: "i" },
+        })
+            .exec();
+        if (!result) {
+            throw new common_1.NotFoundException("No Candidate with that Name");
+        }
+        return result;
+    }
+    async getCandidatesByPosition(position) {
+        const result = await this.candidatesModel.findOne({ position }).exec();
+        if (!result) {
+            throw new common_1.NotFoundException("No Position exists");
+        }
+        return result;
+    }
 };
 exports.CandidatesService = CandidatesService;
 exports.CandidatesService = CandidatesService = __decorate([

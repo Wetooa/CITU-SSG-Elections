@@ -4,4 +4,6 @@ export declare class CandidatesController {
     private readonly candidatesService;
     constructor(candidatesService: CandidatesService);
     create(createCandidateDto: Candidate): Promise<string>;
+    findAll(): Promise<Candidate[]>;
+    search(query: string): Promise<Candidate>;
 }
