@@ -1,0 +1,73 @@
+import ImageDiv from "@/components/utils/image-div";
+import { fadeUp } from "@/utils/animations";
+import { PARTYLIST_TO_IMAGE, CANDIDATE_TO_IMAGE } from "@/utils/consts";
+import { Leaderboard } from "@/utils/types";
+import { faFire } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function LeaderboardForEngagementSection() {
+  const leaderboardData: Leaderboard[] = [
+    {
+      name: "Adrian Sajulga",
+      position: "President",
+      partyList: "United",
+      award: "Most Viewed",
+    },
+    {
+      name: "Adrian Sajulga",
+      position: "President",
+      partyList: "United",
+      award: "Most Viewed",
+    },
+  ];
+
+  return (
+    <motion.section className="border rounded-lg p-4" variants={fadeUp}>
+      <div className="flex items-center gap-2 text-lg font-medium mb-4 text-white">
+        <FontAwesomeIcon icon={faFire} className="text-accent" />
+        Leaderboard for Engagement
+      </div>
+
+      <div className="flex gap-4 overflow-x-auto pb-2">
+        {leaderboardData.map((candidate, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+          >
+            <ImageDiv
+              bgImage={PARTYLIST_TO_IMAGE[candidate.partyList]}
+              className="flex items-end justify-between"
+            >
+              <>
+                <div className="space-y-1 p-2">
+                  <p className="rounded bg-white text-accent text-xs px-2 py-1 w-fit font-semibold">
+                    {candidate.award}
+                  </p>
+                  <p className="uppercase text-white text-3xl font-bebas">
+                    {candidate.name}
+                  </p>
+                  <p className="italic text-white text-sm">
+                    For {candidate.position}
+                  </p>
+                </div>
+
+                <Image
+                  src={CANDIDATE_TO_IMAGE[candidate.name]}
+                  alt={candidate.name}
+                  width={80}
+                  height={80}
+                />
+              </>
+            </ImageDiv>
+          </motion.div>
+        ))}
+      </div>
+    </motion.section>
+  );
+}
