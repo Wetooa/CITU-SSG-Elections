@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 interface CountdownTimerProps {
-  time: Date;
+  time: Date
 }
 
 export const CountdownTimer = ({ time }: CountdownTimerProps) => {
-  const [remaining, setRemaining] = useState(getTimeDiff(time));
+  const [remaining, setRemaining] = useState(getTimeDiff(time))
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRemaining(getTimeDiff(time));
-    }, 1000);
+      setRemaining(getTimeDiff(time))
+    }, 1000)
 
-    return () => clearInterval(interval);
-  }, [time]);
+    return () => clearInterval(interval)
+  }, [time])
 
   if (remaining.total <= 0) {
-    return <p className="text-white text-xl">Voting has started!</p>;
+    return <p className="text-white text-xl">Voting has started!</p>
   }
 
   return (
@@ -28,24 +28,22 @@ export const CountdownTimer = ({ time }: CountdownTimerProps) => {
       <CountdownBox label="Minutes" value={remaining.minutes} />
       <CountdownBox label="Seconds" value={remaining.seconds} />
     </div>
-  );
-};
+  )
+}
 
 const CountdownBox = ({ label, value }: { label: string; value: number }) => (
-  <div className="flex-1 flex flex-col bg-[#141415] border border-[#F98F8F80] px-4 py-2 rounded-md min-w-[70px]">
-    <span className="font-bebas text-7xl font-bold">
-      {value.toString().padStart(2, "0")}
-    </span>
-    <span className="text-sm">{label}</span>
+  <div className="flex-1 flex flex-col bg-[#141415] border border-[#F98F8F80] px-4 py-2 rounded-md min-w-[30px] items-center">
+    <span className="font-bebas text-4xl md:text-7xl font-bold">{value.toString().padStart(2, '0')}</span>
+    <span className="text-xs md:text-sm">{label}</span>
   </div>
-);
+)
 
 const getTimeDiff = (target: Date) => {
-  const total = target.getTime() - new Date().getTime();
-  const seconds = Math.floor((total / 1000) % 60);
-  const minutes = Math.floor((total / 1000 / 60) % 60);
-  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-  const days = Math.floor(total / (1000 * 60 * 60 * 24));
+  const total = target.getTime() - new Date().getTime()
+  const seconds = Math.floor((total / 1000) % 60)
+  const minutes = Math.floor((total / 1000 / 60) % 60)
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24)
+  const days = Math.floor(total / (1000 * 60 * 60 * 24))
 
-  return { total, days, hours, minutes, seconds };
-};
+  return { total, days, hours, minutes, seconds }
+}
