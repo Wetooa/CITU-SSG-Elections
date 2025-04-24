@@ -23,6 +23,20 @@ let CandidatesController = class CandidatesController {
     async create(createCandidateDto) {
         return await this.candidatesService.create(createCandidateDto);
     }
+    async findAll() {
+        const result = await this.candidatesService.getAllCandidates();
+        return result;
+    }
+    async search(query) {
+        if (!isNaN(Number(query))) {
+            const candidate = await this.candidatesService.searchByBalotNum(+query);
+            return candidate;
+        }
+        else {
+            const candidate = await this.candidatesService.searchByName(query);
+            return candidate;
+        }
+    }
 };
 exports.CandidatesController = CandidatesController;
 __decorate([
@@ -32,6 +46,19 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], CandidatesController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)("info/:query"),
+    __param(0, (0, common_1.Param)("query")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "search", null);
 exports.CandidatesController = CandidatesController = __decorate([
     (0, common_1.Controller)("candidates"),
     __metadata("design:paramtypes", [candidates_service_1.CandidatesService])
