@@ -15,10 +15,46 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CandidatesController = void 0;
 const common_1 = require("@nestjs/common");
 const candidates_service_1 = require("./candidates.service");
+const qna_service_1 = require("./qna.service");
+const courseQuestion_service_1 = require("./courseQuestion.service");
 let CandidatesController = class CandidatesController {
     candidatesService;
-    constructor(candidatesService) {
+    qnaService;
+    courseQuestionService;
+    constructor(candidatesService, qnaService, courseQuestionService) {
         this.candidatesService = candidatesService;
+        this.qnaService = qnaService;
+        this.courseQuestionService = courseQuestionService;
+    }
+    async createQNA(candidateId, qnaDto) {
+        return await this.qnaService.create({
+            ...qnaDto,
+        });
+    }
+    async getQNA(candidateId) {
+        const qna = await this.qnaService.findByCandidateId(candidateId);
+        if (!qna) {
+            throw new common_1.NotFoundException(`QNA not found for candidate ${candidateId}`);
+        }
+        return qna;
+    }
+    async getAllQNA() {
+        return await this.qnaService.findAll();
+    }
+    async createCourseQuestions(candidateId, courseQuestionDto) {
+        return await this.courseQuestionService.create({
+            ...courseQuestionDto,
+        });
+    }
+    async getCourseQuestions(candidateId) {
+        const courseQuestions = await this.courseQuestionService.findByCandidateId(candidateId);
+        if (!courseQuestions) {
+            throw new common_1.NotFoundException(`Course questions not found for candidate ${candidateId}`);
+        }
+        return courseQuestions;
+    }
+    async getAllCourseQuestions() {
+        return await this.courseQuestionService.findAll();
     }
     async create(createCandidateDto) {
         return await this.candidatesService.create(createCandidateDto);
@@ -43,6 +79,48 @@ let CandidatesController = class CandidatesController {
     }
 };
 exports.CandidatesController = CandidatesController;
+__decorate([
+    (0, common_1.Post)(":candidateId/qna"),
+    __param(0, (0, common_1.Param)("candidateId")),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "createQNA", null);
+__decorate([
+    (0, common_1.Get)(":candidateId/qna"),
+    __param(0, (0, common_1.Param)("candidateId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "getQNA", null);
+__decorate([
+    (0, common_1.Get)("qna"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "getAllQNA", null);
+__decorate([
+    (0, common_1.Post)(":candidateId/course-questions"),
+    __param(0, (0, common_1.Param)("candidateId")),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "createCourseQuestions", null);
+__decorate([
+    (0, common_1.Get)(":candidateId/course-questions"),
+    __param(0, (0, common_1.Param)("candidateId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "getCourseQuestions", null);
+__decorate([
+    (0, common_1.Get)("course-questions"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "getAllCourseQuestions", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
@@ -73,6 +151,8 @@ __decorate([
 ], CandidatesController.prototype, "update", null);
 exports.CandidatesController = CandidatesController = __decorate([
     (0, common_1.Controller)("candidates"),
-    __metadata("design:paramtypes", [candidates_service_1.CandidatesService])
+    __metadata("design:paramtypes", [candidates_service_1.CandidatesService,
+        qna_service_1.QNAService,
+        courseQuestion_service_1.CourseQuestionService])
 ], CandidatesController);
 //# sourceMappingURL=candidates.controller.js.map
