@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Patch, Post } from "@nestjs/common";
 import { HomeService } from "./home.service";
 import { Home } from "src/models/home.model";
 @Controller("home")
@@ -18,5 +18,12 @@ export class HomeController {
   async getHome() {
     const result = await this.homeService.getHome();
     return result;
+  }
+  //Updating who will be featured
+  //im assuming isa ra ka featured candidate ma butang sa akong gi buhat is
+  //mag replace2 ang featured candidate lng, but we can change it in the future if ever
+  @Patch()
+  async updateFeaturedCandidate(@Body() featuredCandidate: Home) {
+    return await this.homeService.updateFeaturedCandidate(featuredCandidate);
   }
 }

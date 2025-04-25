@@ -19,4 +19,13 @@ export class HomeService {
       .exec();
     return result as Home[];
   }
+
+  async updateFeaturedCandidate(featured_candidate: Home) {
+    const result = await this.HomeModel.findOneAndReplace(
+      {},
+      featured_candidate,
+      { new: true }
+    );
+    return result as Home;
+  }
 }
