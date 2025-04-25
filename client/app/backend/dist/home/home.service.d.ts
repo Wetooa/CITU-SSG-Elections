@@ -5,4 +5,5 @@ export declare class HomeService {
     constructor(HomeModel: Model<Home>);
     setFeaturedCandidate(featuredCandidate: Home): Promise<string>;
     getHome(): Promise<Home[]>;
+    updateFeaturedCandidate(featured_candidate: Home): Promise<Home>;
 }

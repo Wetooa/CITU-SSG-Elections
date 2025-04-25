@@ -11,8 +11,8 @@ const common_1 = require("@nestjs/common");
 const candidates_module_1 = require("./candidates/candidates.module");
 const config_1 = require("@nestjs/config");
 const home_module_1 = require("./home/home.module");
-const stats_module_1 = require("./stats/stats.module");
 const mongoose_1 = require("@nestjs/mongoose");
+const voting_stats_module_1 = require("./voting-stats/voting-stats.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,7 +26,7 @@ exports.AppModule = AppModule = __decorate([
             mongoose_1.MongooseModule.forRoot(process.env.URL_MONGO || ""),
             candidates_module_1.CandidatesModule,
             home_module_1.HomeModule,
-            stats_module_1.StatsModule,
+            voting_stats_module_1.VotingStatsModule,
         ],
         controllers: [],
         providers: [],

@@ -32,6 +32,10 @@ let HomeService = class HomeService {
             .exec();
         return result;
     }
+    async updateFeaturedCandidate(featured_candidate) {
+        const result = await this.HomeModel.findOneAndReplace({}, featured_candidate, { new: true });
+        return result;
+    }
 };
 exports.HomeService = HomeService;
 exports.HomeService = HomeService = __decorate([

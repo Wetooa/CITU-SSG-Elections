@@ -6,7 +6,8 @@ exports.HomeSchema = new mongoose.Schema({
     featured_candidate_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Candidate",
-        required: false,
+        required: true,
+        unique: true,
     },
     countdown_target: {
         type: Date,
