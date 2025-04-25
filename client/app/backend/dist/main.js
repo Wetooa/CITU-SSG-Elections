@@ -6,6 +6,11 @@ const mongoose_1 = require("mongoose");
 async function bootstrap() {
     mongoose_1.default.set("debug", true);
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.enableCors({
+        origin: ["http://localhost:3000"],
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        credentials: true,
+    });
     await app.listen(process.env.PORT ?? 8000);
 }
 bootstrap();
