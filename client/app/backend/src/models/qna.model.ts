@@ -11,17 +11,20 @@ export const QNAModel = new mongoose.Schema(
     },
     q1: {
       type: String,
-      default: "Tuition and Other Fees Increase (TOFI)",
+      default:
+        "How do you perceive the administration’s plan on increasing the tuition fee for the next academic year?",
       required: true,
     },
     q2: {
       type: String,
-      default: "University Administration Performance",
+      default:
+        "How would you assess the university administration’s performance in terms of responding to student concerns and implementing pro-student policies?",
       required: true,
     },
     q3: {
       type: String,
-      default: "SSG Administration Performance",
+      default:
+        "What issues do you believe did the 40th SSG administration fail to address? How would you address it?",
       required: true,
     },
     answer_q1: {
