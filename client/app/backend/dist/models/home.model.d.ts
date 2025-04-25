@@ -32,7 +32,7 @@ export declare const HomeSchema: mongoose.Schema<any, mongoose.Model<any, any, a
     __v: number;
 }>;
 export interface Home {
-    featured_candidate_id?: mongoose.Types.ObjectId | Candidate;
+    featured_candidate_id: mongoose.Types.ObjectId | Candidate;
     countdown_target: Date;
     latest_news_urls: string[];
     milestones: any;

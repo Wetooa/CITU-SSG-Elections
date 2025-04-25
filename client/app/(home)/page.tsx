@@ -8,8 +8,36 @@ import LeaderboardForEngagementSection from "@/components/home/sections/leaderbo
 import VotingForTheDaySection from "@/components/home/sections/voting-for-the-day";
 import { fadeUp } from "@/utils/animations";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const [candidates, setCandidates] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/candidates");
+        const data = await response.json();
+        console.log("Fetched candidates:", data);
+        setCandidates(data);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCandidates();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (candidates.length > 0) {
+    console.log("Candidates:", candidates);
+  }
+
   return (
     <motion.div
       className="space-y-6"
