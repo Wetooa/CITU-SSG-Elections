@@ -55,6 +55,18 @@ let CandidatesService = class CandidatesService {
         }
         return result;
     }
+    async updateCandidate(position, candidateId) {
+        const result = await this.candidatesModel
+            .findByIdAndUpdate(candidateId, { $set: { position: position } }, {
+            new: true,
+            runValidators: true,
+        })
+            .exec();
+        if (!result) {
+            throw new common_1.NotFoundException(`Candidate ${candidateId} not found`);
+        }
+        return result;
+    }
 };
 exports.CandidatesService = CandidatesService;
 exports.CandidatesService = CandidatesService = __decorate([

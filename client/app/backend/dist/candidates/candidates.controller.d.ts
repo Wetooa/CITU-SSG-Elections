@@ -6,4 +6,9 @@ export declare class CandidatesController {
     create(createCandidateDto: Candidate): Promise<string>;
     findAll(): Promise<Candidate[]>;
     search(query: string): Promise<Candidate>;
+    update(position: string, candidateId: string): Promise<import("mongoose").Document<unknown, {}, Candidate> & Candidate & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }>;
 }

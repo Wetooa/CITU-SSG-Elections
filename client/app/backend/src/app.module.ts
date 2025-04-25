@@ -4,6 +4,7 @@ import { ConfigModule } from "@nestjs/config";
 import { HomeModule } from "./home/home.module";
 import { MongooseModule } from "@nestjs/mongoose";
 import { VotingStatsModule } from "./voting-stats/voting-stats.module";
+import { DailyVotesModule } from './daily-votes/daily-votes.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { VotingStatsModule } from "./voting-stats/voting-stats.module";
     CandidatesModule,
     HomeModule,
     VotingStatsModule,
+    DailyVotesModule,
   ],
   controllers: [],
   providers: [],

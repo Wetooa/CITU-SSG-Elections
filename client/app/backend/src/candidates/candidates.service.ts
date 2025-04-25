@@ -45,4 +45,23 @@ export class CandidatesService {
     }
     return result as Candidate;
   }
+
+  async updateCandidate(position: string, candidateId: string) {
+    const result = await this.candidatesModel
+      .findByIdAndUpdate(
+        candidateId,
+        { $set: { position: position } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
+      .exec();
+
+    if (!result) {
+      throw new NotFoundException(`Candidate ${candidateId} not found`);
+    }
+
+    return result;
+  }
 }
