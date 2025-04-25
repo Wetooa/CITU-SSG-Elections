@@ -8,4 +8,9 @@ export declare class CandidatesService {
     searchByBalotNum(balota_number: number): Promise<Candidate>;
     searchByName(name: string): Promise<Candidate>;
     getCandidatesByPosition(position: string): Promise<Candidate>;
+    updateCandidate(position: string, candidateId: string): Promise<import("mongoose").Document<unknown, {}, Candidate> & Candidate & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }>;
 }

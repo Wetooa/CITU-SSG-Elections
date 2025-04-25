@@ -37,6 +37,10 @@ let CandidatesController = class CandidatesController {
             return candidate;
         }
     }
+    async update(position, candidateId) {
+        const result = await this.candidatesService.updateCandidate(position, candidateId);
+        return result;
+    }
 };
 exports.CandidatesController = CandidatesController;
 __decorate([
@@ -59,6 +63,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], CandidatesController.prototype, "search", null);
+__decorate([
+    (0, common_1.Patch)(":position/:candidateId"),
+    __param(0, (0, common_1.Param)("position")),
+    __param(1, (0, common_1.Param)("candidateId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
+], CandidatesController.prototype, "update", null);
 exports.CandidatesController = CandidatesController = __decorate([
     (0, common_1.Controller)("candidates"),
     __metadata("design:paramtypes", [candidates_service_1.CandidatesService])

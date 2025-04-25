@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Patch, Post } from "@nestjs/common";
 import { CandidatesService } from "./candidates.service";
 import { Candidate } from "src/models/candidates.model";
 
@@ -33,5 +33,20 @@ export class CandidatesController {
     }
 
     // const candidate = await this.candidatesService.searchByPosition(query);
+  }
+
+  //To update the position of the candidate, i just wanted to practice and if ever
+  //we make mistakes on populating candidates, naay safeguard with this functions
+  //http://localhost:8000/candidates/President/32
+  @Patch(":position/:candidateId")
+  async update(
+    @Param("position") position: string,
+    @Param("candidateId") candidateId: string
+  ) {
+    const result = await this.candidatesService.updateCandidate(
+      position,
+      candidateId
+    );
+    return result;
   }
 }

@@ -13,6 +13,7 @@ const config_1 = require("@nestjs/config");
 const home_module_1 = require("./home/home.module");
 const mongoose_1 = require("@nestjs/mongoose");
 const voting_stats_module_1 = require("./voting-stats/voting-stats.module");
+const daily_votes_module_1 = require("./daily-votes/daily-votes.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -27,6 +28,7 @@ exports.AppModule = AppModule = __decorate([
             candidates_module_1.CandidatesModule,
             home_module_1.HomeModule,
             voting_stats_module_1.VotingStatsModule,
+            daily_votes_module_1.DailyVotesModule,
         ],
         controllers: [],
         providers: [],
