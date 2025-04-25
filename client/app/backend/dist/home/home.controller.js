@@ -27,6 +27,9 @@ let HomeController = class HomeController {
         const result = await this.homeService.getHome();
         return result;
     }
+    async updateFeaturedCandidate(featuredCandidate) {
+        return await this.homeService.updateFeaturedCandidate(featuredCandidate);
+    }
 };
 exports.HomeController = HomeController;
 __decorate([
@@ -42,6 +45,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], HomeController.prototype, "getHome", null);
+__decorate([
+    (0, common_1.Patch)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], HomeController.prototype, "updateFeaturedCandidate", null);
 exports.HomeController = HomeController = __decorate([
     (0, common_1.Controller)("home"),
     __metadata("design:paramtypes", [home_service_1.HomeService])
