@@ -27,3 +27,9 @@ export interface CandidateProfile extends Candidate{
     tiktok?: string;
   }
 }
+
+export interface Question {
+  title: string
+  question: string
+  answer?: string
+}

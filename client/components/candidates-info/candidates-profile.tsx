@@ -7,6 +7,7 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import SocialLinks from './social-links'
 
 export default function CandidatesProfileSection({ candidate }: { candidate: CandidateProfile }) {
   const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList]
@@ -54,7 +55,7 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
             />
           </div>
 
-          <div className="text-4xl sm:text-6xl lg:text-[96px] xl:text-[120px] leading-[0.9] font-bebas font-normal mt-2">
+          <div className="text-4xl sm:text-6xl lg:text-[96px] xl:text-[120px] leading-[0.9] font-bebas font-normal mt-2 max-w-[70%] break-words">
             {candidate.name.toUpperCase()}
           </div>
 
@@ -63,38 +64,8 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
           </div>
 
           {/* Socials */}
-          <div className="flex gap-3 mt-4">
-            {candidate.socials?.facebook && (
-              <a href={`https://facebook.com/${candidate.socials.facebook}`} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon
-                  icon={faFacebook}
-                  className="text-white-500 text-xl hover:scale-110 transition-transform"
-                />
-              </a>
-            )}
+          <SocialLinks socials={candidate.socials}/>
 
-            {candidate.socials?.instagram && (
-              <a
-                href={`https://instagram.com/${candidate.socials.instagram}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faInstagram}
-                  className="text-white-500 text-xl hover:scale-110 transition-transform"
-                />
-              </a>
-            )}
-
-            {candidate.socials?.tiktok && (
-              <a href={`https://tiktok.com/${candidate.socials.tiktok}`} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon
-                  icon={faTiktok}
-                  className="text-white-500 text-xl hover:scale-110 transition-transform"
-                />
-              </a>
-            )}
-          </div>
         </div>
       </div>
 
@@ -104,8 +75,14 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
         width={340}
         height={340}
         alt={`${candidate.name}`}
-        className="absolute object-none right-0 h-auto w-96 -bottom-28"
+        className="absolute right-0 sm:h-auto sm:w-96 sm:-bottom-28 w-56 -bottom-24"
       />
     </motion.section>
   )
 }
+
+// className="absolute right-0 
+// sm:h-auto sm:w-84 sm:-bottom-36
+// md:h-auto md:w-84 md:-bottom-36 
+// lg:h-auto lg:w-84 lg:-bottom-36 
+// w-64 -bottom-24"
