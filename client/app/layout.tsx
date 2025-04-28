@@ -37,9 +37,10 @@ export default function RootLayout({
         className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased min-h-screen min-w-screen bg-gradient-to-b from-background to-[#141415] text-white drop-shadow-2xl`}
       >
         <Navbar />
+        <Toaster position="top-right" />
+
         <main className="flex-1 flex items-center justify-center w-screen px-6 py-12">
           <div className="w-full max-w-[1200px]">{children}</div>
-          <Toaster />
         </main>
       </body>
     </html>
