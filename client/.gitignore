@@ -5,13 +5,14 @@
 /.pnp
 .pnp.*
 .yarn/*
-!.yarn/patches
+!.yarn/patche
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
 
 # testing
 /coverage
+/.nyc_output
 
 # next.js
 /.next/
@@ -19,6 +20,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -26,12 +28,18 @@
 
 # debug
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
 
 # vercel
 .vercel
@@ -40,5 +48,48 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# package-lock
-package-lock.json
+# backend
+/app/backend/dist
+/app/backend/node_modules
+/app/backend/build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# temp directory
+.temp
+.tmp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
