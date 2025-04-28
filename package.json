@@ -1,0 +1,10 @@
+{
+  "name": "fullstack-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd client next dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev": "concurrently -n \"frontend,backend\" -c \"blue,green\" \"npm run dev:frontend\" \"npm run dev:backend\""
+  }
+}
