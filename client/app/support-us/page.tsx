@@ -203,7 +203,14 @@ export default function SupportUs() {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <motion.button
-                onClick={handleSubmitReview}
+                onClick={() =>
+                  toast("Feedback has been Submitted!", {
+                    action: {
+                      label: "Okay",
+                      onClick: () => console.log("Undo"),
+                    },
+                  })
+                }
                 className="px-4 py-2 bg-[#8B2525] text-white rounded hover:bg-[#6b1d1d] transition"
                 whileHover={{ scale: 1.05, backgroundColor: "#6b1d1d" }}
                 whileTap={{ scale: 0.95 }}
