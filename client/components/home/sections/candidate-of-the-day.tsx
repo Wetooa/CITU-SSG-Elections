@@ -16,14 +16,15 @@ export default function CandidateOfTheDaySection() {
     partyList: "United",
   };
 
-  const {} = useQuery({
-    queryKey: ["candidateOfTheDay"],
-    queryFn: async () => {
-      const response = await fetch(`/api/leaderboard/`);
-      const result = await response.json();
-      return result.leaderboard as Record<string, []>;
-    },
-  });
+  // FIX: Add route here
+  // const { data: candidatesOfTheDayData, isLoading } = useQuery({
+  //   queryKey: ["candidatesOfTheDayData"],
+  //   queryFn: async () => {
+  //     const response = await fetch(`/api/leaderboard/`);
+  //     const result = await response.json();
+  //     return result.leaderboard as Record<string, []>;
+  //   },
+  // });
 
   return (
     <motion.section className="border rounded-lg p-4" variants={fadeDown}>

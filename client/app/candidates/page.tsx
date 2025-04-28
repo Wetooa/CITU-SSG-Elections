@@ -16,7 +16,7 @@ import {
 import { POSITIONS_LIST } from "@/utils/consts";
 import { useEffect, useState } from "react";
 
-const candidateOfTheDayData: Candidate[] = [
+const candidatesData: Candidate[] = [
   {
     name: "Adrian Sajulga",
     position: "President",
@@ -42,8 +42,9 @@ const candidateOfTheDayData: Candidate[] = [
 const ALL = "ALL";
 
 export default function CandidatesPage() {
-  // const { data: candidateOfTheDayData, isLoading } = useQuery({
-  //   queryKey: ["candidateOfTheDay"],
+  // FIX: Add route here
+  // const { data: candidatesData, isLoading } = useQuery({
+  //   queryKey: ["candidatesData"],
   //   queryFn: async () => {
   //     const response = await fetch(`/api/leaderboard/`);
   //     const result = await response.json();
@@ -51,16 +52,14 @@ export default function CandidatesPage() {
   //   },
   // });
 
-  const [candidates, setCandidates] = useState<Candidate[]>(
-    candidateOfTheDayData,
-  );
+  const [candidates, setCandidates] = useState<Candidate[]>(candidatesData);
 
   const [selectedName, setSelectedName] = useState<string>(ALL);
   const [selectedPartyList, setSelectedPartyList] = useState<string>(ALL);
   const [selectedPosition, setSelectedPosition] = useState<string | null>(ALL);
 
   useEffect(() => {
-    const filteredCandidates = candidateOfTheDayData.filter((candidate) => {
+    const filteredCandidates = candidatesData.filter((candidate) => {
       const matchesName =
         selectedName === ALL || candidate.name.includes(selectedName);
 
