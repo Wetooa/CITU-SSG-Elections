@@ -55,7 +55,7 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
             />
           </div>
 
-          <div className="text-4xl sm:text-6xl lg:text-[96px] xl:text-[120px] leading-[0.9] font-bebas font-normal mt-2">
+          <div className="text-4xl sm:text-6xl lg:text-[96px] xl:text-[120px] leading-[0.9] font-bebas font-normal mt-2 max-w-[70%] break-words">
             {candidate.name.toUpperCase()}
           </div>
 
