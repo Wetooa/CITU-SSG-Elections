@@ -75,7 +75,7 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
         width={340}
         height={340}
         alt={`${candidate.name}`}
-        className="absolute right-0 sm:h-auto sm:w-96 sm:-bottom-28 w-64 -bottom-24"
+        className="absolute right-0 sm:h-auto sm:w-96 sm:-bottom-28 w-56 -bottom-24"
       />
     </motion.section>
   )
