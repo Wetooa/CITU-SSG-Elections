@@ -74,19 +74,16 @@ export default function CandidatePage() {
           title: "Tuition and Other Fees Increase (TOFI)",
           question: "How do you perceive the administration’s plan on increasing the tuition fee for the next academic year?",
           answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-          expanded: true,
         },
         {
           title: "University Administration Performance",
           question: "How would you assess the university administration’s performance in terms of responding to student concerns and implementing pro-student policies?",
           answer: "",
-          expanded: false,
         },
         {
           title: "SSG Administration Performance",
           question: "What issues do you believe did the 40th SSG administration fail to address? How would you address it?",
           answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-          expanded: true,
         },
       ];
     
@@ -95,19 +92,16 @@ export default function CandidatePage() {
           title: "Lorem ipsum dolor sit ame",
           question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
           answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-          expanded: true,
         },
         {
           title: "Lorem ipsum dolor sit ame",
           question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
           answer: "",
-          expanded: false,
         },
         {
           title: "Lorem ipsum dolor sit ame",
           question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
           answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-          expanded: true,
         },
       ];
     return (

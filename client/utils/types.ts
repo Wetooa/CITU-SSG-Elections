@@ -32,5 +32,4 @@ export interface Question {
   title: string
   question: string
   answer?: string
-  expanded: boolean
 }

@@ -1,25 +1,44 @@
 import { Question } from '@/utils/types';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+// FontAwesomeIcon icon={faQuestionCircle}
 export default function QuestionSection ({ generalQuestions, courseQuestions }: { generalQuestions: Question[],  courseQuestions: Question[],}) {
-  const QuestionCard = ({ title, question, answer, expanded }: any) => (
-    <div className="border rounded-lg p-4 space-y-2">
-      <div className="flex items-center gap-2">
-        <FontAwesomeIcon icon={faQuestionCircle} className="text-2xl" />
-        <h3 className="text-lg font-bold">{title}</h3>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-2xl">{expanded ? "−" : "+"}</span>
-        <p className="font-medium">{question}</p>
-      </div>
-      {expanded && (
-        <div className="pl-8 text-sm text-gray-300">
-          {answer}
+
+  const QuestionCard = ({ title, question, answer }: any) => {
+    const [expanded, setExpanded] = useState(false);
+
+    return (
+      <div className="border rounded-lg p-4 space-y-2 bg-[#3D1A1A]">
+        <div className="flex items-center gap-2">
+          <FontAwesomeIcon icon={faQuestionCircle} className="text-2xl" />
+          <h3 className="text-lg font-bold">{title}</h3>
         </div>
-      )}
-    </div>
-  );
+        <button
+          onClick={() => setExpanded(prev => !prev)}
+          className="flex items-center gap-2 w-full text-left"
+        >
+          <span className="text-2xl">{expanded ? "−" : "+"}</span>
+          <p className="font-medium">{question}</p>
+        </button>
+
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="pl-8 text-sm text-gray-300 overflow-hidden"
+            >
+              {answer}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
 
   return (
 

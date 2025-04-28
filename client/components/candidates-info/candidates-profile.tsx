@@ -80,3 +80,9 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
     </motion.section>
   )
 }
+
+// className="absolute right-0 
+// sm:h-auto sm:w-84 sm:-bottom-36
+// md:h-auto md:w-84 md:-bottom-36 
+// lg:h-auto lg:w-84 lg:-bottom-36 
+// w-64 -bottom-24"
