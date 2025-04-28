@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/app/backend/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -50,9 +49,9 @@ lerna-debug.log*
 next-env.d.ts
 
 # backend
-backend/dist
-backend/node_modules
-backend/build
+/app/backend/dist
+/app/backend/node_modules
+/app/backend/build
 
 # Logs
 logs
