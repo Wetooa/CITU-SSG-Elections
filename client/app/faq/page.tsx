@@ -20,7 +20,7 @@ const FAQItems: FAQItem[] = [
   {
     question: 'Where to Vote?',
     answer:
-      "You can vote directly through this website. The voting platform will be accessible from any device with an internet connection. Just make sure you're using your official school credentials to log in.",
+      'The designated areas to vote will be announced by the CIT University - Commission on Elections. Please refer to their Facebook page to be updated.',
     isOpen: false,
   },
   {
@@ -32,7 +32,7 @@ const FAQItems: FAQItem[] = [
   {
     question: 'When will the election voting start?',
     answer:
-      'The election voting will start on the officially announced date. Please check the homepage for the countdown timer showing exactly when voting will begin.',
+      'The election voting will officially start on April 30, 2025. Please check the homepage for the countdown timer showing exactly when voting will begin.',
     isOpen: false,
   },
 ]
