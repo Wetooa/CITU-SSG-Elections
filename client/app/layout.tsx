@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar/navbar";
 import type { Metadata } from "next";
 import { Bebas_Neue, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -43,6 +44,8 @@ export default function RootLayout({
         className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased min-h-screen min-w-screen bg-gradient-to-b from-background to-[#141415] text-white drop-shadow-2xl`}
       >
         <Navbar />
+        <Toaster position="top-right" />
+
         <main className="flex-1 flex items-center justify-center w-screen px-6 py-12">
           <div className="w-full max-w-[1200px]">{children}</div>
         </main>
