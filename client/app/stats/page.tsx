@@ -48,10 +48,10 @@ const h2hVotesCastData: Record<string, CandidateWithVotes[]> = {
 export default function StatsPage() {
   const dateToday = new Date()
   const targetDate = VOTING_DATE
-  // const hasVotingStarted = dateToday >= targetDate
+  const hasVotingStarted = dateToday >= targetDate
 
   // override here
-  const hasVotingStarted = true
+  // const hasVotingStarted = true
 
   return (
     <motion.div className="p-4 space-y-6" initial="initial" animate="animate" exit="exit">
@@ -59,7 +59,7 @@ export default function StatsPage() {
         Stats
       </motion.h1>
 
-      <motion.div>
+      <motion.div className="h-96 place-content-center">
         {hasVotingStarted ? (
           <VotesCastSection data={h2hVotesCastData} />
         ) : (
