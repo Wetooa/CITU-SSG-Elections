@@ -16,3 +16,5 @@ export const PARTYLIST_TO_ICON: Record<PartyList, string> = {
 export const CANDIDATE_TO_IMAGE: Record<string, string> = {
   'Adrian Sajulga': '/candidates/duterte-placeholder.png',
 }
+
+export const VOTING_DATE: Date = new Date('2025-04-30T08:00:00')
