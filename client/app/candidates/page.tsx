@@ -16,6 +16,8 @@ import {
 import { POSITIONS_LIST } from "@/utils/consts";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const ALL = "ALL";
 
@@ -42,7 +44,8 @@ export default function CandidatesPage() {
 
     const filteredCandidates = candidatesData.filter((candidate) => {
       const matchesName =
-        selectedName === ALL || candidate.name.includes(selectedName);
+        selectedName === ALL ||
+        candidate.name.toLowerCase().includes(selectedName.toLowerCase());
 
       const matchesPartyList =
         selectedPartyList === ALL || candidate.party_list === selectedPartyList;
@@ -128,7 +131,19 @@ export default function CandidatesPage() {
         exit="exit"
       >
         {candidates.length === 0 ? (
-          <div>smth</div>
+          <div className="flex flex-col items-center justify-center py-10 text-center text-muted-foreground">
+            <Image
+              src="/empty-state.svg"
+              alt="No results"
+              className="w-32 h-32 mb-4 opacity-70"
+              width={128}
+              height={128}
+            />
+            <p className="text-lg font-medium">No candidates found</p>
+            <p className="text-sm text-muted-foreground">
+              Try adjusting your filters or search keywords.
+            </p>
+          </div>
         ) : (
           candidates.map((candidate, index) => (
             <BaseCandidateCard
