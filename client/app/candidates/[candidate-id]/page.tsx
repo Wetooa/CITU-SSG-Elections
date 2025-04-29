@@ -2,9 +2,10 @@
 
 import CandidatesProfileSection from "@/components/candidates-info/candidates-profile";
 import StanceComparisonSection from "@/components/candidates-info/stance-comparison";
-import { CandidateProfile, Stance } from "@/utils/types";
+import { CandidateProfile, Stance, QuestionEntry } from "@/utils/types";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import QuestionSection from "@/components/candidates-info/questions";
 
 const stanceMappings = {
   tuition_increase: {
@@ -41,12 +42,16 @@ export default function CandidatePage() {
   const candidateId = params["candidate-id"];
   const [candidate, setCandidate] = useState<CandidateProfile | null>(null);
   const [stances, setStances] = useState<Stance[]>([]);
+  const [generalJson, setGeneralJson] = useState<QuestionEntry>({});
+  const [courseJson, setCourseJson] = useState<QuestionEntry>({});
+
+  const NEXT_PUBLIC_SERVER_LINK = process.env.NEXT_PUBLIC_SERVER_LINK;
 
   useEffect(() => {
     const fetchCandidate = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/candidates/info/${candidateId}`,
+          `${NEXT_PUBLIC_SERVER_LINK}/candidates/info/${candidateId}`,
         );
         const data = await res.json();
 
@@ -65,7 +70,7 @@ export default function CandidatePage() {
         };
 
         console.log(candidate);
-        // const candidateIdReal = data._id;
+        const candidateIdReal = data._id;
         // console.log("REAL: " + candidateIdReal)
 
         if (data.social_media.facebook !== "N/A") {
@@ -102,10 +107,18 @@ export default function CandidatePage() {
         setStances(fetchedStances);
 
         const res2 = await fetch(
-          `http://localhost:8000/candidates/680f5d6a80c63db51b33b18e/qna`,
+          `${NEXT_PUBLIC_SERVER_LINK}/candidates/${candidateIdReal}/qna`,
         );
         const data2 = await res2.json();
-        console.log(data2);
+        setGeneralJson(data2);
+
+        const res3 = await fetch(
+          `${NEXT_PUBLIC_SERVER_LINK}/candidates/${candidateIdReal}/course-questions`,
+        );
+        const data3 = await res3.json();
+        setCourseJson(data3);
+
+
       } catch (error) {
         console.error("Failed to fetch candidate:", error);
       }
@@ -116,49 +129,6 @@ export default function CandidatePage() {
     }
   }, [candidateId]);
 
-  // const generalQuestions: Question[] = [
-  //   {
-  //     title: "Tuition and Other Fees Increase (TOFI)",
-  //     question:
-  //       "How do you perceive the administration’s plan on increasing the tuition fee for the next academic year?",
-  //     answer:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-  //   },
-  //   {
-  //     title: "University Administration Performance",
-  //     question:
-  //       "How would you assess the university administration’s performance in terms of responding to student concerns and implementing pro-student policies?",
-  //     answer: "",
-  //   },
-  //   {
-  //     title: "SSG Administration Performance",
-  //     question:
-  //       "What issues do you believe did the 40th SSG administration fail to address? How would you address it?",
-  //     answer:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-  //   },
-  // ];
-
-  // const courseQuestions: Question[] = [
-  //   {
-  //     title: "Lorem ipsum dolor sit ame",
-  //     question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
-  //     answer:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-  //   },
-  //   {
-  //     title: "Lorem ipsum dolor sit ame",
-  //     question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
-  //     answer: "",
-  //   },
-  //   {
-  //     title: "Lorem ipsum dolor sit ame",
-  //     question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
-  //     answer:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-  //   },
-  // ];
-
   return (
     <>
       <main className="max-w-7x1 mx-auto px-4 flex flex-col gap-4">
@@ -166,7 +136,7 @@ export default function CandidatePage() {
         {candidate && stances && (
           <StanceComparisonSection candidate={candidate} stances={stances} />
         )}
-        {/* <QuestionSection generalQuestions={generalQuestions} courseQuestions={courseQuestions}/>  */}
+        {generalJson && courseJson && <QuestionSection generalData={generalJson} courseData={courseJson} />}
       </main>
     </>
   );
