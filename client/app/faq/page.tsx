@@ -35,6 +35,12 @@ const FAQItems: FAQItem[] = [
       'The election voting will officially start on April 30, 2025. Please check the homepage for the countdown timer showing exactly when voting will begin.',
     isOpen: false,
   },
+  {
+    question: 'How often does this site get updated?',
+    answer:
+      'The website updates the partial votes every 2 hours starting 8:00 AM on April 30, 2025 (Philippine Standard Time). The website will stop updating the partial votes 2 hours before the end of the election voting period',
+    isOpen: false,
+  },
 ]
 
 export default function FAQPage() {
