@@ -38,7 +38,7 @@ const FAQItems: FAQItem[] = [
   {
     question: 'How often does this site get updated?',
     answer:
-      'The website updates the partial votes every 2 hours starting 8:00 AM on April 30, 2025 (Philippine Standard Time). The website will stop updating the partial votes 2 hours before the end of the election voting period',
+      'The website updates the partial votes every 1 hour starting 12:00 PM on April 30, 2025 (Philippine Standard Time). The website will stop updating the partial votes 2 hours before the end of the election voting period',
     isOpen: false,
   },
 ]
