@@ -1,28 +1,17 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faScaleBalanced,
-  faCheck,
-  faTimes,
-  faMinus,
-} from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
-import { fadeLeft } from "@/utils/animations";
-
-type StanceValue = "yes" | "no" | "abstain";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faScaleBalanced, faCheck, faTimes, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
+import { fadeLeft } from '@/utils/animations'
+import { Stance } from '@/utils/types';
+import { StanceValue } from '@/utils/types';
 
 interface CandidateProfile {
   name: string;
 }
 
-interface Stance {
-  emoji: string;
-  label: string;
-  [candidateName: string]: string | StanceValue;
-}
-
 interface StanceComparisonProps {
-  candidates: CandidateProfile[];
+  candidate: CandidateProfile;
   stances: Stance[];
 }
 
@@ -32,10 +21,11 @@ const stanceIcons = {
   abstain: <FontAwesomeIcon icon={faMinus} className="text-gray-400" />,
 };
 
-const StanceComparison: React.FC<StanceComparisonProps> = ({
-  candidates,
-  stances,
-}) => {
+const StanceComparison: React.FC<StanceComparisonProps> = ({ candidate, stances }) => {
+  const candidates: CandidateProfile[] = [
+    candidate
+  ]
+
   return (
     <motion.section
       className="border overflow-hidden border-red-500 rounded-lg p-4 bg-[#2A0F0F] text-white flex flex-col justify-center relative"
@@ -44,42 +34,43 @@ const StanceComparison: React.FC<StanceComparisonProps> = ({
       {/* Header */}
       <div className="flex items-center gap-2 text-lg font-medium mb-4">
         <FontAwesomeIcon icon={faScaleBalanced} className="text-accent" />
-        Stance Comparison
+        Stances
       </div>
 
-      <div
+        <div
         className={`grid`}
         style={{
-          gridTemplateColumns: `auto repeat(${candidates.length}, 1fr)`,
-          gridTemplateRows: `auto repeat(${stances.length}, auto)`,
-          gap: "1rem",
+            gridTemplateColumns: `auto repeat(${candidates.length}, 1fr)`,
+            gridTemplateRows: `auto repeat(${stances.length}, auto)`,
+            gap: '1rem',
         }}
-      >
+        >
         {/* Candidate Name Headers */}
         <div /> {/* top-left empty cell */}
         {candidates.map((c) => (
-          <div key={c.name} className="text-center font-medium text-white">
+            <div key={c.name} className="text-center font-medium text-white">
             {c.name}
-          </div>
+            </div>
         ))}
+
         {/* Stance Rows */}
         {stances.map(({ emoji, label, ...stancesFor }) => (
-          <React.Fragment key={label}>
+            <React.Fragment key={label}>
             {/* Stance label column */}
             <div className="flex items-center gap-2 text-white">
-              <span>{emoji}</span>
-              <span>{label}</span>
+                <span>{emoji}</span>
+                <span>{label}</span>
             </div>
 
             {/* Candidate stances */}
             {candidates.map((c) => (
-              <div key={c.name + label} className="flex justify-center">
+                <div key={c.name + label} className="flex justify-center">
                 {stanceIcons[stancesFor[c.name] as StanceValue]}
-              </div>
+                </div>
             ))}
-          </React.Fragment>
+            </React.Fragment>
         ))}
-      </div>
+        </div>
     </motion.section>
   );
 };

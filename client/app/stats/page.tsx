@@ -1,11 +1,11 @@
-"use client";
-import CountdownSection from "@/components/home/sections/countdown";
-import { VotesCastSection } from "@/components/stats/votes-cast";
-import { fadeUp } from "@/utils/animations";
-import { VOTING_DATE } from "@/utils/consts";
-import { Candidate } from "@/utils/types";
-import { useQuery } from "@tanstack/react-query";
-import { motion } from "framer-motion";
+'use client'
+import CountdownSection from '@/components/home/sections/countdown'
+import { VotesCastSection } from '@/components/stats/votes-cast'
+import { fadeUp } from '@/utils/animations'
+import { VOTING_DATE } from '@/utils/consts'
+import { Candidate } from '@/utils/types'
+import { useQuery } from '@tanstack/react-query'
+import { motion } from 'framer-motion'
 
 // const h2hVotesCastData: Record<string, Candidate[]> = {
 //   President: [
@@ -47,44 +47,35 @@ import { motion } from "framer-motion";
 // };
 
 export default function StatsPage() {
-  const NEXT_PUBLIC_SERVER_LINK = process.env.NEXT_PUBLIC_SERVER_LINK;
+  const NEXT_PUBLIC_SERVER_LINK = process.env.NEXT_PUBLIC_SERVER_LINK
   const { data: candidatesData, isLoading } = useQuery({
-    queryKey: ["candidatesData"],
+    queryKey: ['candidatesData'],
     queryFn: async () => {
-      const response = await fetch(`${NEXT_PUBLIC_SERVER_LINK}/candidates`);
-      const result = await response.json();
-      return result as Candidate[];
+      const response = await fetch(`${NEXT_PUBLIC_SERVER_LINK}/candidates`)
+      const result = await response.json()
+      return result as Candidate[]
     },
-  });
+  })
 
-  const h2hVotesCastData: Record<string, Candidate[]> = {};
+  const h2hVotesCastData: Record<string, Candidate[]> = {}
 
   candidatesData?.forEach((candidate: Candidate) => {
     if (!h2hVotesCastData[candidate.position]) {
-      h2hVotesCastData[candidate.position] = [];
+      h2hVotesCastData[candidate.position] = []
     }
-    h2hVotesCastData[candidate.position].push(candidate);
-  });
+    h2hVotesCastData[candidate.position].push(candidate)
+  })
 
-  const dateToday = new Date();
-  const targetDate = VOTING_DATE;
-  // const hasVotingStarted = dateToday >= targetDate;
+  const dateToday = new Date()
+  const targetDate = VOTING_DATE
+  const hasVotingStarted = dateToday >= targetDate
 
   // override here
-  const hasVotingStarted = true;
+  // const hasVotingStarted = true;
 
   return (
-    <motion.div
-      className="p-4 space-y-6"
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      <motion.h1
-        className="text-3xl font-bold text-white"
-        variants={fadeUp}
-        transition={{ delay: 0.1 }}
-      >
+    <motion.div className="p-4 space-y-6" initial="initial" animate="animate" exit="exit">
+      <motion.h1 className="text-3xl font-bold text-white" variants={fadeUp} transition={{ delay: 0.1 }}>
         Stats
       </motion.h1>
 
@@ -97,5 +88,5 @@ export default function StatsPage() {
         )}
       </motion.div>
     </motion.div>
-  );
+  )
 }

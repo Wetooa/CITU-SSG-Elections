@@ -5,6 +5,7 @@ import { CandidateProfile } from "@/utils/types";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import { BaseCandidateCard } from "../candidate-cards/base-candidate-card";
 import Image from "next/image";
 import SocialLinks from "./social-links";
 
@@ -30,7 +31,7 @@ export default function CandidatesProfileSection({
 
       {/* Profile Container */}
       <div
-        className="flex flex-col h-full lg:flex-row justify-between items-center gap-6 rounded-lg "
+        className="flex flex-col lg:flex-row justify-between items-center gap-6 rounded-lg w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgImage})`,
           backgroundSize: "cover",
@@ -38,15 +39,16 @@ export default function CandidatesProfileSection({
         }}
       >
         {/* Info and Banner */}
-        <div className="w-full p-6 rounded-md text-white">
+        <div className="w-full p-6 rounded-md text-white relative sm:min-h-72">
           <div className="flex items-center gap-4">
+
             {/* Partylist Number */}
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
+            {/* <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
               #{candidate.partyListNumber}
-            </div>
+            </div> */}
 
             {/* Red Separator Line */}
-            <div className="w-[1px] h-6 bg-[#EF4444]" />
+            {/* <div className="w-[1px] h-6 bg-[#EF4444]" /> */}
 
             {/* Partylist Icon */}
             <Image
@@ -69,23 +71,25 @@ export default function CandidatesProfileSection({
           {/* Socials */}
           <SocialLinks socials={candidate.social_media} />
         </div>
+
+        {/* Candidate Image */}
+        <Image
+            src={candidateImage}
+            width={340}
+            height={340}
+            alt={`${candidate.name}`}
+            className="w-96 h-full"
+        />
+
       </div>
 
-      {/* Image */}
-      <Image
-        src={candidateImage}
-        width={340}
-        height={340}
-        alt={`${candidate.name}`}
-        className="absolute right-0 sm:h-auto sm:w-96 sm:-bottom-28 w-56 -bottom-24"
-      />
+
     </motion.section>
-  );
+  )
 }
 
-// className="absolute right-0
+// className="absolute right-0 
 // sm:h-auto sm:w-84 sm:-bottom-36
-// md:h-auto md:w-84 md:-bottom-36
-// lg:h-auto lg:w-84 lg:-bottom-36
+// md:h-auto md:w-84 md:-bottom-36 
+// lg:h-auto lg:w-84 lg:-bottom-36 
 // w-64 -bottom-24"
-

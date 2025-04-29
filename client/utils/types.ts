@@ -11,9 +11,9 @@ export interface Candidate {
   votes: number;
   balota_number: number;
   social_media: {
-    facebook: string;
-    instagram: string;
-    tiktok: string;
+    facebook?: string;
+    instagram?: string;
+    tiktok?: string;
   };
   stances: {
     tuition_increase: boolean;
@@ -47,10 +47,24 @@ export interface CandidateWithViews extends Candidate {
 
 export interface CandidateProfile extends Candidate {
   partyListNumber: number;
+  socials?:{
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+    tiktok?: string;
+  }
 }
 
 export interface Question {
   title: string;
   question: string;
   answer?: string;
+}
+
+export type StanceValue = 'yes' | 'no' | 'abstain';
+
+export interface Stance {
+  emoji: string;
+  label: string;
+  [candidateName: string]: string | StanceValue;
 }

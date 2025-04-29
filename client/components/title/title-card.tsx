@@ -3,11 +3,7 @@ import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export default function TitleCard({
-  className,
-}: {
-  className?: React.HTMLAttributes<HTMLDivElement>["className"];
-}) {
+export default function TitleCard({ className }: { className?: React.HTMLAttributes<HTMLDivElement>['className'] }) {
   return (
     <Link href={"/"} className={cn(className, "flex gap-2 h-full")}>
       <Image
@@ -19,12 +15,7 @@ export default function TitleCard({
 
       <Separator className="" orientation="vertical" />
 
-      <Image
-        src={"/logos/TTSP-logo.svg"}
-        alt={"SSG Logo"}
-        width={25}
-        height={25}
-      />
+      <Image src={'/logos/TTSP-logo.svg'} alt={'SSG Logo'} width={25} height={25} />
 
       <Image
         src={"/logos/TTSP-logo-2.svg"}
