@@ -40,7 +40,7 @@ export default function CandidatesProfileSection({
       >
         {/* Info and Banner */}
         <div className="w-full p-6 rounded-md text-white relative sm:min-h-72">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center sm:gap-4">
 
             {/* Partylist Number */}
             {/* <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
@@ -56,7 +56,7 @@ export default function CandidatesProfileSection({
               width={128}
               height={128}
               alt="Partylist"
-              className="h-6 sm:h-7 md:h-8 lg:h-9 xl:h-10"
+              className="sm:h-6 md:h-8 lg:h-9 xl:h-10"
             />
           </div>
 
