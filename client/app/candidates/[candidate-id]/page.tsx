@@ -46,7 +46,7 @@ export default function CandidatePage() {
     const fetchCandidate = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/candidates/info/${candidateId}`,
+          `${process.env.NEXT_PUBLIC_SERVER_LINK}/candidates/info/${candidateId}`,
         );
         const data = await res.json();
 
