@@ -1,16 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import ImageDiv from "../utils/image-div";
-import { Candidate } from "@/utils/types";
+import { getCandidateImage } from "@/lib/utils";
 import { fadeUp } from "@/utils/animations";
+import { PARTYLIST_TO_ICON, PARTYLIST_TO_IMAGE } from "@/utils/consts";
+import { Candidate } from "@/utils/types";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  CANDIDATE_TO_IMAGE,
-  PARTYLIST_TO_ICON,
-  PARTYLIST_TO_IMAGE,
-} from "@/utils/consts";
 import Link from "next/link";
+import ImageDiv from "../utils/image-div";
 
 interface BaseCandidateCardProps {
   index: number;
@@ -30,7 +27,7 @@ export const BaseCandidateCard = ({
         >
           <>
             <Image
-              src={CANDIDATE_TO_IMAGE[candidate.name]}
+              src={getCandidateImage(candidate.name)}
               alt={candidate.name}
               width={100}
               height={100}

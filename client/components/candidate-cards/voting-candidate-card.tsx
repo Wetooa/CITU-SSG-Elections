@@ -5,6 +5,7 @@ import ImageDiv from "../utils/image-div";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Candidate } from "@/utils/types";
+import { getCandidateImage } from "@/lib/utils";
 
 interface CandidateCardProps {
   index: number;
@@ -97,7 +98,7 @@ export const VotingCandidateCard = ({
 
             {/* Candidate image */}
             <Image
-              src={CANDIDATE_TO_IMAGE[candidate.name] || "/placeholder.svg"}
+              src={getCandidateImage(candidate.name)}
               alt={candidate.name}
               width={120}
               height={120}
@@ -165,7 +166,7 @@ export const VotingCandidateCard = ({
 
             <div className="flex pt-4">
               <Image
-                src={CANDIDATE_TO_IMAGE[candidate.name] || "/placeholder.svg"}
+                src={getCandidateImage(candidate.name)}
                 alt={candidate.name}
                 width={192}
                 height={192}

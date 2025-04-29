@@ -1,4 +1,5 @@
 import ImageDiv from "@/components/utils/image-div";
+import { getCandidateImage } from "@/lib/utils";
 import { fadeUp } from "@/utils/animations";
 import { PARTYLIST_TO_IMAGE, CANDIDATE_TO_IMAGE } from "@/utils/consts";
 import { Leaderboard } from "@/utils/types";
@@ -122,7 +123,7 @@ export default function LeaderboardForEngagementSection() {
                 </div>
 
                 <Image
-                  src={CANDIDATE_TO_IMAGE[candidate.name]}
+                  src={getCandidateImage(candidate.name)}
                   alt={candidate.name}
                   width={80}
                   height={80}

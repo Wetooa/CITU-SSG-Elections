@@ -13,12 +13,12 @@ export const PARTYLIST_TO_ICON: Record<PartyList, string> = {
 const CANDIDATE_URL = "/candidates";
 
 export const CANDIDATE_TO_IMAGE: Record<string, string> = {
-  "Harold Dave C.": `${CANDIDATE_URL}/HAROLD.webp`,
-  "Aczriel Zeth M.": `${CANDIDATE_URL}/ACZRIEL.webp`,
-  "John Mark A.": `${CANDIDATE_URL}/JOHN.webp`,
-  "Jasmine Junelle U.": `${CANDIDATE_URL}/JASMINE.webp`,
-  "John Mark L.": `${CANDIDATE_URL}/JOHN.webp`,
-  "Cenieza Rosewil C.": `${CANDIDATE_URL}/CENIEZA.webp`,
+  // "Harold Dave C.": `${CANDIDATE_URL}/HAROLD.webp`,
+  // "Aczriel Zeth M.": `${CANDIDATE_URL}/ACZRIEL.webp`,
+  // "John Mark A.": `${CANDIDATE_URL}/JOHN.webp`,
+  // "Jasmine Junelle U.": `${CANDIDATE_URL}/JASMINE.webp`,
+  // "John Mark L.": `${CANDIDATE_URL}/JOHN.webp`,
+  // "Cenieza Rosewil C.": `${CANDIDATE_URL}/CENIEZA.webp`,
   "Dejon Nash I.": `${CANDIDATE_URL}/DEJON.webp`,
   "Calsita Angel-Romz B.": `${CANDIDATE_URL}/CALSITA.webp`,
   "Quiban Palm Antonette C.": `${CANDIDATE_URL}/QUIBAN.webp`,

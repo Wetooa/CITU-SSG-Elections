@@ -1,6 +1,5 @@
 "use client";
 
-import CandidateOfTheDaySection from "@/components/home/sections/candidate-of-the-day";
 import CountdownSection from "@/components/home/sections/countdown";
 import ElectionTimelineSection from "@/components/home/sections/election-timeline";
 import LatestNewsSection from "@/components/home/sections/latest-news";
@@ -31,7 +30,7 @@ export default function HomePage() {
 
         {/* Right Column */}
         <div className="flex flex-col gap-4 flex-1">
-          <CandidateOfTheDaySection />
+          {/* <CandidateOfTheDaySection /> */}
           <ElectionTimelineSection />
           {/* <LeaderboardForEngagementSection /> */}
         </div>

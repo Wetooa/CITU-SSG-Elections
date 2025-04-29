@@ -1,18 +1,21 @@
-import ImageDiv from '@/components/utils/image-div'
-import { fadeLeft } from '@/utils/animations'
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_ICON, PARTYLIST_TO_IMAGE } from '@/utils/consts'
-import { CandidateProfile } from '@/utils/types'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import SocialLinks from './social-links'
+import { getCandidateImage } from "@/lib/utils";
+import { fadeLeft } from "@/utils/animations";
+import { PARTYLIST_TO_ICON, PARTYLIST_TO_IMAGE } from "@/utils/consts";
+import { CandidateProfile } from "@/utils/types";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import SocialLinks from "./social-links";
 
-export default function CandidatesProfileSection({ candidate }: { candidate: CandidateProfile }) {
-  const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList]
-  const partyListIcon = PARTYLIST_TO_ICON[candidate.partyList]
-  const candidateImage = CANDIDATE_TO_IMAGE[candidate.name]
+export default function CandidatesProfileSection({
+  candidate,
+}: {
+  candidate: CandidateProfile;
+}) {
+  const bgImage = PARTYLIST_TO_IMAGE[candidate.party_list];
+  const partyListIcon = PARTYLIST_TO_ICON[candidate.party_list];
+  const candidateImage = getCandidateImage(candidate.name);
 
   return (
     <motion.section
@@ -30,8 +33,8 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
         className="flex flex-col h-full lg:flex-row justify-between items-center gap-6 rounded-lg "
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         {/* Info and Banner */}
@@ -64,8 +67,7 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
           </div>
 
           {/* Socials */}
-          <SocialLinks socials={candidate.socials}/>
-
+          <SocialLinks socials={candidate.social_media} />
         </div>
       </div>
 
@@ -78,11 +80,12 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
         className="absolute right-0 sm:h-auto sm:w-96 sm:-bottom-28 w-56 -bottom-24"
       />
     </motion.section>
-  )
+  );
 }
 
-// className="absolute right-0 
+// className="absolute right-0
 // sm:h-auto sm:w-84 sm:-bottom-36
-// md:h-auto md:w-84 md:-bottom-36 
-// lg:h-auto lg:w-84 lg:-bottom-36 
+// md:h-auto md:w-84 md:-bottom-36
+// lg:h-auto lg:w-84 lg:-bottom-36
 // w-64 -bottom-24"
+
