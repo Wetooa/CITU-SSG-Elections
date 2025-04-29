@@ -1,10 +1,15 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faScaleBalanced, faCheck, faTimes, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
-import { fadeLeft } from '@/utils/animations'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faScaleBalanced,
+  faCheck,
+  faTimes,
+  faMinus,
+} from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+import { fadeLeft } from "@/utils/animations";
 
-type StanceValue = 'yes' | 'no' | 'abstain';
+type StanceValue = "yes" | "no" | "abstain";
 
 interface CandidateProfile {
   name: string;
@@ -27,7 +32,10 @@ const stanceIcons = {
   abstain: <FontAwesomeIcon icon={faMinus} className="text-gray-400" />,
 };
 
-const StanceComparison: React.FC<StanceComparisonProps> = ({ candidates, stances }) => {
+const StanceComparison: React.FC<StanceComparisonProps> = ({
+  candidates,
+  stances,
+}) => {
   return (
     <motion.section
       className="border overflow-hidden border-red-500 rounded-lg p-4 bg-[#2A0F0F] text-white flex flex-col justify-center relative"
@@ -39,40 +47,39 @@ const StanceComparison: React.FC<StanceComparisonProps> = ({ candidates, stances
         Stance Comparison
       </div>
 
-        <div
+      <div
         className={`grid`}
         style={{
-            gridTemplateColumns: `auto repeat(${candidates.length}, 1fr)`,
-            gridTemplateRows: `auto repeat(${stances.length}, auto)`,
-            gap: '1rem',
+          gridTemplateColumns: `auto repeat(${candidates.length}, 1fr)`,
+          gridTemplateRows: `auto repeat(${stances.length}, auto)`,
+          gap: "1rem",
         }}
-        >
+      >
         {/* Candidate Name Headers */}
         <div /> {/* top-left empty cell */}
         {candidates.map((c) => (
-            <div key={c.name} className="text-center font-medium text-white">
+          <div key={c.name} className="text-center font-medium text-white">
             {c.name}
-            </div>
+          </div>
         ))}
-
         {/* Stance Rows */}
         {stances.map(({ emoji, label, ...stancesFor }) => (
-            <React.Fragment key={label}>
+          <React.Fragment key={label}>
             {/* Stance label column */}
             <div className="flex items-center gap-2 text-white">
-                <span>{emoji}</span>
-                <span>{label}</span>
+              <span>{emoji}</span>
+              <span>{label}</span>
             </div>
 
             {/* Candidate stances */}
             {candidates.map((c) => (
-                <div key={c.name + label} className="flex justify-center">
+              <div key={c.name + label} className="flex justify-center">
                 {stanceIcons[stancesFor[c.name] as StanceValue]}
-                </div>
+              </div>
             ))}
-            </React.Fragment>
+          </React.Fragment>
         ))}
-        </div>
+      </div>
     </motion.section>
   );
 };
