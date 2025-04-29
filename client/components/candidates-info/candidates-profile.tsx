@@ -5,7 +5,6 @@ import { CandidateProfile } from "@/utils/types";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import { BaseCandidateCard } from "../candidate-cards/base-candidate-card";
 import Image from "next/image";
 import SocialLinks from "./social-links";
 
@@ -41,7 +40,6 @@ export default function CandidatesProfileSection({
         {/* Info and Banner */}
         <div className="w-full p-6 rounded-md text-white relative sm:min-h-72">
           <div className="flex items-center gap-4">
-
             {/* Partylist Number */}
             {/* <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
               #{candidate.partyListNumber}
@@ -74,22 +72,19 @@ export default function CandidatesProfileSection({
 
         {/* Candidate Image */}
         <Image
-            src={candidateImage}
-            width={340}
-            height={340}
-            alt={`${candidate.name}`}
-            className="w-96 h-full"
+          src={candidateImage}
+          width={340}
+          height={340}
+          alt={`${candidate.name}`}
+          className="w-96 h-full"
         />
-
       </div>
-
-
     </motion.section>
-  )
+  );
 }
 
-// className="absolute right-0 
+// className="absolute right-0
 // sm:h-auto sm:w-84 sm:-bottom-36
-// md:h-auto md:w-84 md:-bottom-36 
-// lg:h-auto lg:w-84 lg:-bottom-36 
+// md:h-auto md:w-84 md:-bottom-36
+// lg:h-auto lg:w-84 lg:-bottom-36
 // w-64 -bottom-24"

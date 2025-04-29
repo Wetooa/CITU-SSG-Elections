@@ -1,7 +1,7 @@
 import ImageDiv from "@/components/utils/image-div";
 import { getCandidateImage } from "@/lib/utils";
 import { fadeUp } from "@/utils/animations";
-import { PARTYLIST_TO_IMAGE, CANDIDATE_TO_IMAGE } from "@/utils/consts";
+import { PARTYLIST_TO_IMAGE } from "@/utils/consts";
 import { Leaderboard } from "@/utils/types";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
