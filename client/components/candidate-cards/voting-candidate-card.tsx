@@ -1,19 +1,20 @@
-'use client'
+"use client";
 
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_ICON } from '@/utils/consts'
-import ImageDiv from '../utils/image-div'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import type { CandidateWithVotes } from '@/utils/types'
+import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_ICON } from "@/utils/consts";
+import ImageDiv from "../utils/image-div";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Candidate } from "@/utils/types";
+import { getCandidateImage } from "@/lib/utils";
 
 interface CandidateCardProps {
-  index: number
-  bgImage: string
-  candidate: CandidateWithVotes
-  isLosing?: boolean // used in h2h, showcases white votes bg if losing
-  isPhotoLeft: boolean // orientation determined by position of candidate's photo
-  isLongCard: boolean // for sole candidates with long row
-  showPosition: boolean
+  index: number;
+  bgImage: string;
+  candidate: Candidate;
+  isLosing?: boolean; // used in h2h, showcases white votes bg if losing
+  isPhotoLeft: boolean; // orientation determined by position of candidate's photo
+  isLongCard: boolean; // for sole candidates with long row
+  showPosition: boolean;
 }
 
 export const VotingCandidateCard = ({
@@ -26,8 +27,11 @@ export const VotingCandidateCard = ({
   showPosition,
 }: CandidateCardProps) => {
   // will put as props
-  const maxVotes = 2000
-  const turnoutPercentage = Math.min(Math.round((candidate.votes / maxVotes) * 100), 100)
+  const maxVotes = 2000;
+  const turnoutPercentage = Math.min(
+    Math.round((candidate.votes / maxVotes) * 100),
+    100,
+  );
 
   return (
     <motion.div
@@ -41,30 +45,40 @@ export const VotingCandidateCard = ({
     >
       {/* Mobile Layout (Stacked) - only visible on small screens */}
       <div className="block sm:hidden">
-        <ImageDiv bgImage={bgImage} className="relative overflow-hidden rounded-lg min-h-[160px]">
+        <ImageDiv
+          bgImage={bgImage}
+          className="relative overflow-hidden rounded-lg min-h-[160px]"
+        >
           <div className="absolute inset-0 flex flex-col">
             {/* Top section with party icon */}
             <div className="flex justify-between items-start p-3">
               {!showPosition && (
                 <Image
-                  src={PARTYLIST_TO_ICON[candidate.partyList] || '/placeholder.svg'}
-                  alt={candidate.partyList}
+                  src={
+                    PARTYLIST_TO_ICON[candidate.party_list] ||
+                    "/placeholder.svg"
+                  }
+                  alt={candidate.party_list}
                   width={40}
                   height={40}
                   className="w-auto h-4"
                 />
               )}
-              {showPosition && <p className="italic text-xs">For {candidate.position}</p>}
+              {showPosition && (
+                <p className="italic text-xs">For {candidate.position}</p>
+              )}
             </div>
 
             {/* Bottom section with candidate info */}
             <div className="mt-auto p-3 pt-0 bg-gradient-to-t from-black/70 to-transparent">
-              <p className="uppercase leading-tight m-0 text-2xl font-bebas">{candidate.name}</p>
+              <p className="uppercase leading-tight m-0 text-2xl font-bebas">
+                {candidate.name}
+              </p>
 
               <div className="flex justify-between items-center mt-1">
                 <p
                   className={`rounded-lg px-2 py-0.5 text-xs ${
-                    isLosing ? 'bg-white text-accent' : 'bg-accent text-white'
+                    isLosing ? "bg-white text-accent" : "bg-accent text-white"
                   }`}
                 >
                   {candidate.votes} votes
@@ -75,7 +89,7 @@ export const VotingCandidateCard = ({
               <div className="w-full mt-1">
                 <div className="w-full bg-gray-700 rounded-full h-1.5">
                   <div
-                    className={`h-1.5 rounded-full ${isLosing ? 'bg-white' : 'bg-accent'}`}
+                    className={`h-1.5 rounded-full ${isLosing ? "bg-white" : "bg-accent"}`}
                     style={{ width: `${turnoutPercentage}%` }}
                   ></div>
                 </div>
@@ -84,7 +98,7 @@ export const VotingCandidateCard = ({
 
             {/* Candidate image */}
             <Image
-              src={CANDIDATE_TO_IMAGE[candidate.name] || '/placeholder.svg'}
+              src={getCandidateImage(candidate.name)}
               alt={candidate.name}
               width={120}
               height={120}
@@ -98,32 +112,39 @@ export const VotingCandidateCard = ({
       <div className="hidden sm:block">
         <ImageDiv
           bgImage={bgImage}
-          className={`flex h-40 items-end justify-between ${isPhotoLeft && 'flex-row-reverse'}`}
+          className={`flex h-40 items-end justify-between ${isPhotoLeft && "flex-row-reverse"}`}
         >
           <>
-            <div className={`p-4 ${isPhotoLeft && 'place-items-end-safe'}`}>
+            <div className={`p-4 ${isPhotoLeft && "place-items-end-safe"}`}>
               {!isLongCard && (
                 <>
                   <p
                     className={`rounded-lg px-2 py-1 w-fit text-sm ${
-                      isLosing ? 'bg-white text-accent' : 'bg-accent text-white'
+                      isLosing ? "bg-white text-accent" : "bg-accent text-white"
                     }`}
                   >
                     {candidate.votes} votes
                   </p>
-                  <p className="uppercase leading-normal m-0 text-3xl sm:text-4xl font-bebas">{candidate.name}</p>
+                  <p className="uppercase leading-normal m-0 text-3xl sm:text-4xl font-bebas">
+                    {candidate.name}
+                  </p>
                 </>
               )}
 
               {showPosition ? (
-                <p className="italic leading-normal text-xs">For {candidate.position}</p>
+                <p className="italic leading-normal text-xs">
+                  For {candidate.position}
+                </p>
               ) : (
                 <Image
-                  src={PARTYLIST_TO_ICON[candidate.partyList] || '/placeholder.svg'}
-                  alt={candidate.partyList}
+                  src={
+                    PARTYLIST_TO_ICON[candidate.party_list] ||
+                    "/placeholder.svg"
+                  }
+                  alt={candidate.party_list}
                   width={40}
                   height={40}
-                  className={`w-auto ${isLongCard ? 'h-12 mb-6' : 'h-4'}`}
+                  className={`w-auto ${isLongCard ? "h-12 mb-6" : "h-4"}`}
                 />
               )}
 
@@ -135,7 +156,7 @@ export const VotingCandidateCard = ({
                   </div>
                   <div className="w-full bg-gray-700 rounded-full h-2.5">
                     <div
-                      className={`h-2.5 rounded-full ${isLosing ? 'bg-white' : 'bg-accent'}`}
+                      className={`h-2.5 rounded-full ${isLosing ? "bg-white" : "bg-accent"}`}
                       style={{ width: `${turnoutPercentage}%` }}
                     ></div>
                   </div>
@@ -145,23 +166,25 @@ export const VotingCandidateCard = ({
 
             <div className="flex pt-4">
               <Image
-                src={CANDIDATE_TO_IMAGE[candidate.name] || '/placeholder.svg'}
+                src={getCandidateImage(candidate.name)}
                 alt={candidate.name}
                 width={192}
                 height={192}
-                className={`absolute object-none h-80 w-auto -bottom-40 ${isPhotoLeft ? 'left-0' : 'right-0'}`}
+                className={`absolute object-none h-80 w-auto -bottom-40 ${isPhotoLeft ? "left-0" : "right-0"}`}
               />
 
               {isLongCard && (
                 <div className="p-4 ml-60">
                   <p
                     className={`rounded-lg px-2 py-1 w-fit ${
-                      isLosing ? 'bg-white text-accent' : 'bg-accent text-white'
+                      isLosing ? "bg-white text-accent" : "bg-accent text-white"
                     }`}
                   >
                     {candidate.votes} votes
                   </p>
-                  <p className="uppercase leading-normal m-0 text-3xl sm:text-4xl font-bebas">{candidate.name}</p>
+                  <p className="uppercase leading-normal m-0 text-3xl sm:text-4xl font-bebas">
+                    {candidate.name}
+                  </p>
 
                   <div className="w-full mt-2">
                     <div className="flex justify-between text-xs mb-1">
@@ -170,7 +193,7 @@ export const VotingCandidateCard = ({
                     </div>
                     <div className="w-full bg-gray-700 rounded-full h-2.5">
                       <div
-                        className={`h-2.5 rounded-full ${isLosing ? 'bg-white' : 'bg-accent'}`}
+                        className={`h-2.5 rounded-full ${isLosing ? "bg-white" : "bg-accent"}`}
                         style={{ width: `${turnoutPercentage}%` }}
                       ></div>
                     </div>
@@ -182,5 +205,5 @@ export const VotingCandidateCard = ({
         </ImageDiv>
       </div>
     </motion.div>
-  )
-}
+  );
+};

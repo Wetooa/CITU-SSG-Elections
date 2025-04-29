@@ -1,4 +1,5 @@
 import ImageDiv from "@/components/utils/image-div";
+import { getCandidateImage } from "@/lib/utils";
 import { fadeUp } from "@/utils/animations";
 import { PARTYLIST_TO_IMAGE, CANDIDATE_TO_IMAGE } from "@/utils/consts";
 import { Leaderboard } from "@/utils/types";
@@ -12,16 +13,80 @@ export default function LeaderboardForEngagementSection() {
     {
       name: "Adrian Sajulga",
       position: "President",
-      partyList: "United",
+      party_list: "United",
       award: "Most Viewed",
+      votes: 0,
+      balota_number: 0,
+      social_media: {
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+      stances: {
+        tuition_increase: false,
+        facility_expansion: false,
+        parking_space: false,
+        SSG_fee: false,
+        mental_health: false,
+        cats_in_campus: false,
+        AI_use: false,
+        campus_press_freedom: false,
+        student_activism: false,
+        duterte_arrest: false,
+        political_dynasties: false,
+        sara_impeachment: false,
+        legal_divorse: false,
+        legal_abortion: false,
+        equality_bill: false,
+        same_sex_marriage: false,
+        pro_palestine: false,
+        press_freedom: false,
+      },
     },
     {
       name: "Adrian Sajulga",
       position: "President",
-      partyList: "United",
+      party_list: "United",
       award: "Most Viewed",
+      votes: 0,
+      balota_number: 0,
+      social_media: {
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+      stances: {
+        tuition_increase: false,
+        facility_expansion: false,
+        parking_space: false,
+        SSG_fee: false,
+        mental_health: false,
+        cats_in_campus: false,
+        AI_use: false,
+        campus_press_freedom: false,
+        student_activism: false,
+        duterte_arrest: false,
+        political_dynasties: false,
+        sara_impeachment: false,
+        legal_divorse: false,
+        legal_abortion: false,
+        equality_bill: false,
+        same_sex_marriage: false,
+        pro_palestine: false,
+        press_freedom: false,
+      },
     },
   ];
+
+  // FIX: Add route here
+  // const { data: candidatesData, isLoading } = useQuery({
+  //   queryKey: ["candidatesData"],
+  //   queryFn: async () => {
+  //     const response = await fetch(`/api/leaderboard/`);
+  //     const result = await response.json();
+  //     return result.leaderboard as Record<string, []>;
+  //   },
+  // });
 
   return (
     <motion.section className="border rounded-lg p-4" variants={fadeUp}>
@@ -41,7 +106,7 @@ export default function LeaderboardForEngagementSection() {
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
             <ImageDiv
-              bgImage={PARTYLIST_TO_IMAGE[candidate.partyList]}
+              bgImage={PARTYLIST_TO_IMAGE[candidate.party_list]}
               className="flex items-end justify-between"
             >
               <>
@@ -58,7 +123,7 @@ export default function LeaderboardForEngagementSection() {
                 </div>
 
                 <Image
-                  src={CANDIDATE_TO_IMAGE[candidate.name]}
+                  src={getCandidateImage(candidate.name)}
                   alt={candidate.name}
                   width={80}
                   height={80}
