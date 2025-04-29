@@ -14,57 +14,38 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { POSITIONS_LIST } from "@/utils/consts";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-
-const candidatesData: Candidate[] = [
-  {
-    name: "Adrian Sajulga",
-    position: "President",
-    partyList: "United",
-  },
-  {
-    name: "Adrian Sajulga",
-    position: "Vice President",
-    partyList: "Just",
-  },
-  {
-    name: "Adrian Sajulga",
-    position: "President",
-    partyList: "United",
-  },
-  {
-    name: "Adrian Sajulga",
-    position: "Vice President",
-    partyList: "Just",
-  },
-];
 
 const ALL = "ALL";
 
 export default function CandidatesPage() {
-  // FIX: Add route here
-  // const { data: candidatesData, isLoading } = useQuery({
-  //   queryKey: ["candidatesData"],
-  //   queryFn: async () => {
-  //     const response = await fetch(`/api/leaderboard/`);
-  //     const result = await response.json();
-  //     return result.leaderboard as Record<string, []>;
-  //   },
-  // });
+  const NEXT_PUBLIC_SERVER_LINK = process.env.NEXT_PUBLIC_SERVER_LINK;
 
-  const [candidates, setCandidates] = useState<Candidate[]>(candidatesData);
+  const { data: candidatesData, isLoading } = useQuery({
+    queryKey: ["candidatesData"],
+    queryFn: async () => {
+      const response = await fetch(`${NEXT_PUBLIC_SERVER_LINK}/candidates`);
+      const result = await response.json();
+      return result as Candidate[];
+    },
+  });
+
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
 
   const [selectedName, setSelectedName] = useState<string>(ALL);
   const [selectedPartyList, setSelectedPartyList] = useState<string>(ALL);
   const [selectedPosition, setSelectedPosition] = useState<string | null>(ALL);
 
   useEffect(() => {
+    if (!candidatesData || isLoading) return;
+
     const filteredCandidates = candidatesData.filter((candidate) => {
       const matchesName =
         selectedName === ALL || candidate.name.includes(selectedName);
 
       const matchesPartyList =
-        selectedPartyList === ALL || candidate.partyList === selectedPartyList;
+        selectedPartyList === ALL || candidate.party_list === selectedPartyList;
 
       const matchesPosition =
         selectedPosition === ALL || candidate.position === selectedPosition;
@@ -73,7 +54,13 @@ export default function CandidatesPage() {
     });
 
     setCandidates(filteredCandidates);
-  }, [selectedName, selectedPartyList, selectedPosition]);
+  }, [
+    candidatesData,
+    isLoading,
+    selectedName,
+    selectedPartyList,
+    selectedPosition,
+  ]);
 
   return (
     <motion.div

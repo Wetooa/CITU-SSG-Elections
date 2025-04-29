@@ -1,23 +1,42 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import ImageDiv from '../utils/image-div'
-import { Candidate } from '@/utils/types'
-import { fadeUp } from '@/utils/animations'
-import Image from 'next/image'
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_ICON, PARTYLIST_TO_IMAGE } from '@/utils/consts'
+import { motion } from "framer-motion";
+import ImageDiv from "../utils/image-div";
+import { Candidate } from "@/utils/types";
+import { fadeUp } from "@/utils/animations";
+import Image from "next/image";
+import {
+  CANDIDATE_TO_IMAGE,
+  PARTYLIST_TO_ICON,
+  PARTYLIST_TO_IMAGE,
+} from "@/utils/consts";
 
 interface BaseCandidateCardProps {
-  index: number
-  candidate: Candidate
+  index: number;
+  candidate: Candidate;
 }
 
-export const BaseCandidateCard = ({ index, candidate }: BaseCandidateCardProps) => {
+export const BaseCandidateCard = ({
+  index,
+  candidate,
+}: BaseCandidateCardProps) => {
   return (
-    <motion.div key={index} variants={fadeUp} transition={{ delay: 0.1 + index * 0.1 }}>
-      <ImageDiv bgImage={PARTYLIST_TO_IMAGE[candidate.partyList]} className="flex gap-4 px-4 items-center">
+    <motion.div
+      key={index}
+      variants={fadeUp}
+      transition={{ delay: 0.1 + index * 0.1 }}
+    >
+      <ImageDiv
+        bgImage={PARTYLIST_TO_IMAGE[candidate.party_list]}
+        className="flex gap-4 px-4 items-center"
+      >
         <>
-          <Image src={CANDIDATE_TO_IMAGE[candidate.name]} alt={candidate.name} width={100} height={100} />
+          <Image
+            src={CANDIDATE_TO_IMAGE[candidate.name]}
+            alt={candidate.name}
+            width={100}
+            height={100}
+          />
 
           <div className="space-y-1">
             <h1 className="text-3xl font-bold">{candidate.name}</h1>
@@ -26,13 +45,13 @@ export const BaseCandidateCard = ({ index, candidate }: BaseCandidateCardProps) 
 
           <Image
             className="ml-auto"
-            src={PARTYLIST_TO_ICON[candidate.partyList]}
-            alt={candidate.partyList}
+            src={PARTYLIST_TO_ICON[candidate.party_list]}
+            alt={candidate.party_list}
             width={100}
             height={100}
           />
         </>
       </ImageDiv>
     </motion.div>
-  )
-}
+  );
+};
