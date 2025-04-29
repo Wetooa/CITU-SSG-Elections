@@ -68,3 +68,14 @@ export interface Stance {
   label: string;
   [candidateName: string]: string | StanceValue;
 }
+
+// Define new type
+export type QuestionEntry = {
+  [key: string]: any; // Flexible keys, for q1, answer_q1, etc.
+};
+
+export type QA = {
+  title: string;
+  question: string;
+  answer?: string;
+};
