@@ -7,5 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getCandidateImage(name: string) {
-  return CANDIDATE_TO_IMAGE[name] || "/candidates/DUTERTE.png";
+  return CANDIDATE_TO_IMAGE[name] || "/candidates/DUTERTE-PLACEHOLDER.png";
 }
