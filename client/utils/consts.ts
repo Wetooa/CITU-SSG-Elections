@@ -7,7 +7,7 @@ export const PARTYLIST_TO_IMAGE: Record<PartyList, string> = {
 
 export const PARTYLIST_TO_ICON: Record<PartyList, string> = {
   United: "/icons/united.svg",
-  just: "/icons/just.svg",
+  Just: "/icons/just.svg",
 };
 
 const CANDIDATE_URL = "/candidates";

@@ -37,10 +37,6 @@ export interface Candidate {
   };
 }
 
-export interface CandidateWithVotes extends Candidate {
-  votes: number;
-}
-
 export interface Leaderboard extends Candidate {
   award: string;
 }
