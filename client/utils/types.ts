@@ -33,3 +33,11 @@ export interface Question {
   question: string
   answer?: string
 }
+
+export type StanceValue = 'yes' | 'no' | 'abstain';
+
+export interface Stance {
+  emoji: string;
+  label: string;
+  [candidateName: string]: string | StanceValue;
+}

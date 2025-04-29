@@ -37,13 +37,14 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
         {/* Info and Banner */}
         <div className="w-full p-6 rounded-md text-white">
           <div className="flex items-center gap-4">
+
             {/* Partylist Number */}
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
+            {/* <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
               #{candidate.partyListNumber}
-            </div>
+            </div> */}
 
             {/* Red Separator Line */}
-            <div className="w-[1px] h-6 bg-[#EF4444]" />
+            {/* <div className="w-[1px] h-6 bg-[#EF4444]" /> */}
 
             {/* Partylist Icon */}
             <Image

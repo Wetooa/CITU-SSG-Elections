@@ -3,21 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faScaleBalanced, faCheck, faTimes, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { fadeLeft } from '@/utils/animations'
-
-type StanceValue = 'yes' | 'no' | 'abstain';
+import { Stance } from '@/utils/types';
+import { StanceValue } from '@/utils/types';
 
 interface CandidateProfile {
   name: string;
 }
 
-interface Stance {
-  emoji: string;
-  label: string;
-  [candidateName: string]: string | StanceValue;
-}
-
 interface StanceComparisonProps {
-  candidates: CandidateProfile[];
+  candidate: CandidateProfile;
   stances: Stance[];
 }
 
@@ -27,7 +21,11 @@ const stanceIcons = {
   abstain: <FontAwesomeIcon icon={faMinus} className="text-gray-400" />,
 };
 
-const StanceComparison: React.FC<StanceComparisonProps> = ({ candidates, stances }) => {
+const StanceComparison: React.FC<StanceComparisonProps> = ({ candidate, stances }) => {
+  const candidates: CandidateProfile[] = [
+    candidate
+  ]
+
   return (
     <motion.section
       className="border overflow-hidden border-red-500 rounded-lg p-4 bg-[#2A0F0F] text-white flex flex-col justify-center relative"
@@ -36,7 +34,7 @@ const StanceComparison: React.FC<StanceComparisonProps> = ({ candidates, stances
       {/* Header */}
       <div className="flex items-center gap-2 text-lg font-medium mb-4">
         <FontAwesomeIcon icon={faScaleBalanced} className="text-accent" />
-        Stance Comparison
+        Stances
       </div>
 
         <div
