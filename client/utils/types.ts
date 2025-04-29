@@ -11,9 +11,9 @@ export interface Candidate {
   votes: number;
   balota_number: number;
   social_media: {
-    facebook: string;
-    instagram: string;
-    tiktok: string;
+    facebook?: string;
+    instagram?: string;
+    tiktok?: string;
   };
   stances: {
     tuition_increase: boolean;

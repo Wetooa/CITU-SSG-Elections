@@ -57,12 +57,19 @@ export default function CandidatePage() {
           const candidate: CandidateProfile = {
             name: data.name,
             position: data.position,
-            partyList: data.party_list,
+            party_list: data.party_list,
+            balota_number: data.balota_number,
             partyListNumber: data.balota_number,
             socials: {},
+            social_media: {},
+            stances: data.stances,
+            votes: data.votes,
+
           };
 
           console.log(candidate)
+          const candidateIdReal = data._id
+          // console.log("REAL: " + candidateIdReal)
     
           if (data.social_media.facebook !== "N/A") {
             candidate.socials!.facebook = data.social_media.facebook;
@@ -93,6 +100,11 @@ export default function CandidatePage() {
           
         
           setStances(fetchedStances);
+
+          const res2 = await fetch(`http://localhost:8000/candidates/680f5d6a80c63db51b33b18e/qna`);
+          const data2 = await res2.json();
+          console.log(data2)
+
         } catch (error) {
           console.error("Failed to fetch candidate:", error);
         }
@@ -145,7 +157,7 @@ export default function CandidatePage() {
             <main className="max-w-7x1 mx-auto px-4 flex flex-col gap-4">    
                 {candidate && <CandidatesProfileSection candidate={candidate} />}
                 {candidate && stances && <StanceComparisonSection candidate={candidate} stances={stances}/>}
-                <QuestionSection generalQuestions={generalQuestions} courseQuestions={courseQuestions}/> 
+                {/* <QuestionSection generalQuestions={generalQuestions} courseQuestions={courseQuestions}/>  */}
             </main>
         </>
     );
