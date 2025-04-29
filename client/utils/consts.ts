@@ -26,7 +26,7 @@ export const CANDIDATE_TO_IMAGE: Record<string, string> = {
   "Bedro Frittzie Ann E.": `${CANDIDATE_URL}/BEDRO.webp`,
   "Telmoso Jan Nhericka R.": `${CANDIDATE_URL}/TELMOSO.webp`,
   "Gimoros Charlyn Paula L.": `${CANDIDATE_URL}/GIMOROS.webp`,
-  "Ledesma Jean Louben S.": `${CANDIDATE_URL}/LEDESMA.webp`,
+  // "Ledesma Jean Louben S.": `${CANDIDATE_URL}/LEDESMA.webp`,
   "Maitim Rhodyl B.": `${CANDIDATE_URL}/MAITIM.webp`,
   "Maghilum Alexander Gabriel B.": `${CANDIDATE_URL}/MAGHILUM.webp`,
   "Deguma Marry Joyce L.": `${CANDIDATE_URL}/DEGUMA.webp`,
@@ -49,9 +49,9 @@ export const CANDIDATE_TO_IMAGE: Record<string, string> = {
   "Aniceto Adriel John Phillip": `${CANDIDATE_URL}/ANICETO.webp`,
   "Getuaban Ma. Reian C.": `${CANDIDATE_URL}/GETUABAN.webp`,
   "Gocotano Maria Carmelle M.": `${CANDIDATE_URL}/GOCOTANO.webp`,
-  "Nepomuceno Andrea Nicole M.": `${CANDIDATE_URL}/NEPOMUCENO.webp`,
-  "Floresca Mary Adelaine N.": `${CANDIDATE_URL}/FLORESCA.webp`,
-  Ria: `${CANDIDATE_URL}/RIA.webp`,
+  // "Nepomuceno Andrea Nicole M.": `${CANDIDATE_URL}/NEPOMUCENO.webp`,
+  // "Floresca Mary Adelaine N.": `${CANDIDATE_URL}/FLORESCA.webp`,
+  // Ria: `${CANDIDATE_URL}/RIA.webp`,
 };
 
 export const VOTING_DATE: Date = new Date("2025-04-30T08:00:00");
