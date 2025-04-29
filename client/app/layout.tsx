@@ -1,43 +1,43 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next'
+import './globals.css'
 
-import Navbar from "@/components/navbar/navbar";
-import { Toaster } from "sonner";
+import Navbar from '@/components/navbar/navbar'
+import { Toaster } from 'sonner'
 
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { Bebas_Neue, DM_Sans } from "next/font/google";
-import QueryProvider from "@/components/provider/QueryProvider";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { Bebas_Neue, DM_Sans } from 'next/font/google'
+import QueryProvider from '@/components/provider/QueryProvider'
 
 const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-dm-sans',
+  subsets: ['latin'],
+})
 
 const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
-  subsets: ["latin"],
-  weight: "400",
-});
-config.autoAddCss = false;
+  variable: '--font-bebas-neue',
+  subsets: ['latin'],
+  weight: '400',
+})
+config.autoAddCss = false
 
 export const metadata: Metadata = {
-  title: "PROJECT E",
+  title: 'CIT-U SSG Elections 2025',
   description:
-    "PROJECT E is an interactive platform for CIT-U's SSG Elections. It helps students explore candidate profiles, platforms, and achievements, with tools like a countdown to voting day, live vote tally, and a side-by-side comparison feature. Designed for clarity and accessibility, it empowers students to make informed choices throughout the election process.",
+    "CIT-U SSG Elections 2025 is an interactive platform for CIT-U's SSG Elections. It helps students explore candidate profiles, platforms, and achievements, with tools like a countdown to voting day, live vote tally, and a side-by-side comparison feature. Designed for clarity and accessibility, it empowers students to make informed choices throughout the election process.",
   icons: {
     icon: [
       {
-        url: "/favicon/favicon.ico",
+        url: '/favicon/favicon.ico',
       },
     ],
   },
-};
+}
 
 export default function Layout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -54,5 +54,5 @@ export default function Layout({
         </QueryProvider>
       </body>
     </html>
-  );
+  )
 }
