@@ -15,9 +15,8 @@ import {
 } from "@/components/ui/select";
 import { POSITIONS_LIST } from "@/utils/consts";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const ALL = "ALL";
 

@@ -12,14 +12,68 @@ export default function LeaderboardForEngagementSection() {
     {
       name: "Adrian Sajulga",
       position: "President",
-      partyList: "United",
+      party_list: "United",
       award: "Most Viewed",
+      votes: 0,
+      balota_number: 0,
+      social_media: {
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+      stances: {
+        tuition_increase: false,
+        facility_expansion: false,
+        parking_space: false,
+        SSG_fee: false,
+        mental_health: false,
+        cats_in_campus: false,
+        AI_use: false,
+        campus_press_freedom: false,
+        student_activism: false,
+        duterte_arrest: false,
+        political_dynasties: false,
+        sara_impeachment: false,
+        legal_divorse: false,
+        legal_abortion: false,
+        equality_bill: false,
+        same_sex_marriage: false,
+        pro_palestine: false,
+        press_freedom: false,
+      },
     },
     {
       name: "Adrian Sajulga",
       position: "President",
-      partyList: "United",
+      party_list: "United",
       award: "Most Viewed",
+      votes: 0,
+      balota_number: 0,
+      social_media: {
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+      stances: {
+        tuition_increase: false,
+        facility_expansion: false,
+        parking_space: false,
+        SSG_fee: false,
+        mental_health: false,
+        cats_in_campus: false,
+        AI_use: false,
+        campus_press_freedom: false,
+        student_activism: false,
+        duterte_arrest: false,
+        political_dynasties: false,
+        sara_impeachment: false,
+        legal_divorse: false,
+        legal_abortion: false,
+        equality_bill: false,
+        same_sex_marriage: false,
+        pro_palestine: false,
+        press_freedom: false,
+      },
     },
   ];
 
@@ -51,7 +105,7 @@ export default function LeaderboardForEngagementSection() {
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
             <ImageDiv
-              bgImage={PARTYLIST_TO_IMAGE[candidate.partyList]}
+              bgImage={PARTYLIST_TO_IMAGE[candidate.party_list]}
               className="flex items-end justify-between"
             >
               <>

@@ -4,7 +4,6 @@ import CandidateOfTheDaySection from "@/components/home/sections/candidate-of-th
 import CountdownSection from "@/components/home/sections/countdown";
 import ElectionTimelineSection from "@/components/home/sections/election-timeline";
 import LatestNewsSection from "@/components/home/sections/latest-news";
-import LeaderboardForEngagementSection from "@/components/home/sections/leaderboard-for-engagement";
 import { fadeUp } from "@/utils/animations";
 import { motion } from "framer-motion";
 
@@ -34,7 +33,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-4 flex-1">
           <CandidateOfTheDaySection />
           <ElectionTimelineSection />
-          <LeaderboardForEngagementSection />
+          {/* <LeaderboardForEngagementSection /> */}
         </div>
       </div>
     </motion.div>
