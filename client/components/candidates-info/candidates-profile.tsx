@@ -31,7 +31,7 @@ export default function CandidatesProfileSection({
 
       {/* Profile Container */}
       <div
-        className="flex flex-col lg:flex-row justify-between items-center gap-6 rounded-lg w-full"
+        className="flex flex-col lg:flex-row justify-between items-center sm:gap-6 rounded-lg w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgImage})`,
           backgroundSize: "cover",
@@ -39,7 +39,7 @@ export default function CandidatesProfileSection({
         }}
       >
         {/* Info and Banner */}
-        <div className="w-full p-6 rounded-md text-white relative sm:min-h-72">
+        <div className="w-full sm:p-6 px-6 pt-6 rounded-md text-white relative sm:min-h-72">
           <div className="flex items-center sm:gap-4">
 
             {/* Partylist Number */}
