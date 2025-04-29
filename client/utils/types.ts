@@ -51,12 +51,6 @@ export interface CandidateWithViews extends Candidate {
 
 export interface CandidateProfile extends Candidate {
   partyListNumber: number;
-  socials?: {
-    facebook?: string;
-    instagram?: string;
-    twitter?: string;
-    tiktok?: string;
-  };
 }
 
 export interface Question {
