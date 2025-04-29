@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function TitleCard({ className }: { className?: React.HTMLAttributes<HTMLDivElement>['className'] }) {
   return (
-    <div className={cn(className, "flex gap-2 h-full")}>
+    <Link href={"/"} className={cn(className, "flex gap-2 h-full")}>
       <Image
         src={"/logos/SSG-logo.svg"}
         alt={"SSG Logo"}
@@ -22,7 +22,8 @@ export default function TitleCard({ className }: { className?: React.HTMLAttribu
         alt={"SSG Logo"}
         width={200}
         height={50}
+        className="lg:block hidden"
       />
-    </div>
+    </Link>
   );
 }
