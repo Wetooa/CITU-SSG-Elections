@@ -23,6 +23,16 @@ export default function LeaderboardForEngagementSection() {
     },
   ];
 
+  // FIX: Add route here
+  // const { data: candidatesData, isLoading } = useQuery({
+  //   queryKey: ["candidatesData"],
+  //   queryFn: async () => {
+  //     const response = await fetch(`/api/leaderboard/`);
+  //     const result = await response.json();
+  //     return result.leaderboard as Record<string, []>;
+  //   },
+  // });
+
   return (
     <motion.section className="border rounded-lg p-4" variants={fadeUp}>
       <div className="flex items-center gap-2 text-lg font-medium mb-4 text-white">

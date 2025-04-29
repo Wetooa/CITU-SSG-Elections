@@ -19,7 +19,7 @@ export class CandidatesController {
   constructor(
     private readonly candidatesService: CandidatesService,
     private readonly qnaService: QNAService,
-    private readonly courseQuestionService: CourseQuestionService
+    private readonly courseQuestionService: CourseQuestionService,
   ) {}
 
   // QNA endpoints
@@ -27,7 +27,7 @@ export class CandidatesController {
   @Post(":candidateId/qna")
   async createQNA(
     @Param("candidateId") candidateId: string,
-    @Body() qnaDto: QNA
+    @Body() qnaDto: QNA,
   ) {
     return await this.qnaService.create({
       ...qnaDto,
@@ -54,7 +54,7 @@ export class CandidatesController {
   @Post(":candidateId/course-questions")
   async createCourseQuestions(
     @Param("candidateId") candidateId: string,
-    @Body() courseQuestionDto: CourseQuestion
+    @Body() courseQuestionDto: CourseQuestion,
   ) {
     return await this.courseQuestionService.create({
       ...courseQuestionDto,
@@ -68,7 +68,7 @@ export class CandidatesController {
       await this.courseQuestionService.findByCandidateId(candidateId);
     if (!courseQuestions) {
       throw new NotFoundException(
-        `Course questions not found for candidate ${candidateId}`
+        `Course questions not found for candidate ${candidateId}`,
       );
     }
     return courseQuestions;
@@ -119,11 +119,11 @@ export class CandidatesController {
   @Patch(":position/:candidateId")
   async update(
     @Param("position") position: string,
-    @Param("candidateId") candidateId: string
+    @Param("candidateId") candidateId: string,
   ) {
     const result = await this.candidatesService.updateCandidate(
       position,
-      candidateId
+      candidateId,
     );
     return result;
   }

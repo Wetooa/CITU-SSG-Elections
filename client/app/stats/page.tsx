@@ -59,7 +59,7 @@ export default function StatsPage() {
         Stats
       </motion.h1>
 
-      <motion.div>
+      <motion.div className="h-full min-h-96 place-content-center">
         {hasVotingStarted ? (
           <VotesCastSection data={h2hVotesCastData} />
         ) : (

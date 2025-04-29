@@ -1,5 +1,5 @@
 import { PARTYLIST_TO_IMAGE } from '@/utils/consts'
-import { CandidateWithVotes } from '@/utils/types'
+import type { CandidateWithVotes } from '@/utils/types'
 import { VotingCandidateCard } from '../candidate-cards/voting-candidate-card'
 
 interface VotesCastRowProps {
@@ -14,12 +14,16 @@ export const VotesCastRow = ({ position, candidates, index }: VotesCastRowProps)
   const bgImageRightCandidate = candidatesLength > 1 ? PARTYLIST_TO_IMAGE[candidates[1].partyList] : ''
 
   return (
-    <div className="m-4">
-      <h3 className="w-full text-center italic mb-2 text-lg">For {position}</h3>
-      <div className={`flex items-center gap-4 ${candidatesLength === 1 ? 'justify-center' : 'justify-between'}`}>
-        <div className={candidatesLength === 1 ? 'w-full' : 'w-1/2'}>
+    <div className="m-2 sm:m-4">
+      <h3 className="w-full text-center italic mb-2 text-base sm:text-lg">For {position}</h3>
+      <div
+        className={`flex flex-col sm:flex-row items-center gap-3 sm:gap-4 ${
+          candidatesLength === 1 ? 'justify-center' : 'justify-between'
+        }`}
+      >
+        <div className={candidatesLength === 1 ? 'w-full' : 'w-full sm:w-1/2'}>
           <VotingCandidateCard
-            key={index}
+            key={`${index}-0`}
             index={index}
             bgImage={bgImageLeftCandidate}
             candidate={candidates[0]}
@@ -32,15 +36,15 @@ export const VotesCastRow = ({ position, candidates, index }: VotesCastRowProps)
 
         {candidatesLength === 2 && (
           <>
-            <div className="flex flex-col gap-2 items-center">
-              <div className="border-l h-6" />
-              <span className="text-lg font-semibold text-center px-2 font-sans flex-1">vs.</span>
-              <div className="border-l h-6" />
+            <div className="flex sm:flex-col flex-row gap-2 items-center my-1 sm:my-0">
+              <div className="border-t sm:border-l sm:h-6 w-6 sm:w-auto" />
+              <span className="text-base sm:text-lg font-semibold text-center px-2 font-sans flex-1">vs.</span>
+              <div className="border-t sm:border-l sm:h-6 w-6 sm:w-auto" />
             </div>
 
-            <div className="w-1/2">
+            <div className="w-full sm:w-1/2">
               <VotingCandidateCard
-                key={index}
+                key={`${index}-1`}
                 index={index}
                 bgImage={bgImageRightCandidate}
                 candidate={candidates[1]}
