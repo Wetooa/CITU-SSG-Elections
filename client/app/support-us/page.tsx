@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 import { toast } from "sonner";
 
 export default function SupportUs() {
-  const [selectedRating, setSelectedRating] = useState(null);
+  const [selectedRating, setSelectedRating] = useState<string | null>(null);
   const [feedback, setFeedback] = useState("");
 
-  const handleRatingSelect = (rating) => {
+  const handleRatingSelect = (rating: string) => {
     setSelectedRating(rating);
   };
 
@@ -192,7 +192,7 @@ export default function SupportUs() {
                       {rating}
                     </motion.span>
                   </div>
-                )
+                ),
               )}
             </motion.div>
             <motion.textarea

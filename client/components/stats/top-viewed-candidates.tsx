@@ -1,24 +1,31 @@
-'use client'
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_IMAGE } from '@/utils/consts'
-import ImageDiv from '../utils/image-div'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fadeUp } from '@/utils/animations'
-import { faEye } from '@fortawesome/free-solid-svg-icons'
-import { CandidateWithViews } from '@/utils/types'
-import useMeasure from 'react-use-measure'
+"use client";
+
+import { getCandidateImage } from "@/lib/utils";
+import { fadeUp } from "@/utils/animations";
+import { PARTYLIST_TO_IMAGE } from "@/utils/consts";
+import { CandidateWithViews } from "@/utils/types";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import useMeasure from "react-use-measure";
+import ImageDiv from "../utils/image-div";
 
 interface TopViewedCandidatesProps {
-  data: CandidateWithViews[]
+  data: CandidateWithViews[];
 }
 
-export const TopViewedCandidateSection = ({ data }: TopViewedCandidatesProps) => {
-  const [ref, { width }] = useMeasure()
-  const extendedData = [...data, ...data]
+export const TopViewedCandidateSection = ({
+  data,
+}: TopViewedCandidatesProps) => {
+  const [ref, { width }] = useMeasure();
+  const extendedData = [...data, ...data];
 
   return (
-    <motion.section className="border rounded-lg p-4 h-fit overflow-hidden" variants={fadeUp}>
+    <motion.section
+      className="border rounded-lg p-4 h-fit overflow-hidden"
+      variants={fadeUp}
+    >
       <div className="flex items-center gap-2 text-lg font-medium mb-4 text-white">
         <FontAwesomeIcon icon={faEye} className="text-accent" />
         Top Viewed Candidates
@@ -29,9 +36,9 @@ export const TopViewedCandidateSection = ({ data }: TopViewedCandidatesProps) =>
           className="flex gap-4"
           transition={{
             duration: 25,
-            ease: 'linear',
+            ease: "linear",
             repeat: Infinity,
-            repeatType: 'loop',
+            repeatType: "loop",
             repeatDelay: 0,
           }}
           initial={{ x: 0 }}
@@ -41,7 +48,7 @@ export const TopViewedCandidateSection = ({ data }: TopViewedCandidatesProps) =>
           {extendedData.map((candidate, index) => (
             <div key={index} className="shrink-0 w-56">
               <ImageDiv
-                bgImage={PARTYLIST_TO_IMAGE[candidate.partyList]}
+                bgImage={PARTYLIST_TO_IMAGE[candidate.party_list]}
                 className="flex items-end justify-between w-full"
               >
                 <>
@@ -49,10 +56,19 @@ export const TopViewedCandidateSection = ({ data }: TopViewedCandidatesProps) =>
                     <p className="rounded bg-white text-accent text-xs px-2 py-1 w-fit font-semibold">
                       {candidate.views} views
                     </p>
-                    <p className="uppercase text-white text-3xl font-bebas">{candidate.name}</p>
-                    <p className="italic text-white text-sm">For {candidate.position}</p>
+                    <p className="uppercase text-white text-3xl font-bebas">
+                      {candidate.name}
+                    </p>
+                    <p className="italic text-white text-sm">
+                      For {candidate.position}
+                    </p>
                   </div>
-                  <Image src={CANDIDATE_TO_IMAGE[candidate.name]} alt={candidate.name} width={80} height={80} />
+                  <Image
+                    src={getCandidateImage(candidate.name)}
+                    alt={candidate.name}
+                    width={80}
+                    height={80}
+                  />
                 </>
               </ImageDiv>
             </div>
@@ -60,5 +76,5 @@ export const TopViewedCandidateSection = ({ data }: TopViewedCandidatesProps) =>
         </motion.div>
       </div>
     </motion.section>
-  )
-}
+  );
+};

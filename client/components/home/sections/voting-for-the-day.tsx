@@ -1,33 +1,13 @@
-import { VotingCandidateCard } from '@/components/candidate-cards/voting-candidate-card'
-import { fadeLeft } from '@/utils/animations'
-import { PARTYLIST_TO_IMAGE } from '@/utils/consts'
-import { CandidateWithVotes } from '@/utils/types'
-import { faRectangleList } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { motion } from 'framer-motion'
+import { VotingCandidateCard } from "@/components/candidate-cards/voting-candidate-card";
+import { fadeLeft } from "@/utils/animations";
+import { PARTYLIST_TO_IMAGE } from "@/utils/consts";
+import { Candidate } from "@/utils/types";
+import { faRectangleList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 
 export default function VotingForTheDaySection() {
-  const votingForTheDayData: CandidateWithVotes[] = [
-    {
-      name: 'Adrian Sajulga',
-      votes: 120,
-      position: 'President',
-      partyList: 'United',
-    },
-    {
-      name: 'Adrian Sajulga',
-      votes: 120,
-      position: 'President',
-      partyList: 'Just',
-    },
-    {
-      name: 'Adrian Sajulga',
-      votes: 120,
-      position: 'President',
-      partyList: 'United',
-    },
-  ]
-
+  const votingForTheDayData: Candidate[] = [];
   return (
     <motion.section className="border rounded-lg p-4" variants={fadeLeft}>
       <div className="flex items-center gap-2 text-lg font-medium mb-2">
@@ -37,7 +17,7 @@ export default function VotingForTheDaySection() {
 
       <div className="space-y-2">
         {votingForTheDayData.map((candidate, index) => {
-          const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList]
+          const bgImage = PARTYLIST_TO_IMAGE[candidate.party_list];
 
           return (
             <VotingCandidateCard
@@ -49,9 +29,9 @@ export default function VotingForTheDaySection() {
               showPosition={true}
               isLongCard={false}
             />
-          )
+          );
         })}
       </div>
     </motion.section>
-  )
+  );
 }

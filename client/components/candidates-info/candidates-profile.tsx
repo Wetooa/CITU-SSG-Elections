@@ -1,18 +1,21 @@
-import ImageDiv from '@/components/utils/image-div'
-import { fadeLeft } from '@/utils/animations'
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_ICON, PARTYLIST_TO_IMAGE } from '@/utils/consts'
-import { CandidateProfile } from '@/utils/types'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import SocialLinks from './social-links'
+import { getCandidateImage } from "@/lib/utils";
+import { fadeLeft } from "@/utils/animations";
+import { PARTYLIST_TO_ICON, PARTYLIST_TO_IMAGE } from "@/utils/consts";
+import { CandidateProfile } from "@/utils/types";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import SocialLinks from "./social-links";
 
-export default function CandidatesProfileSection({ candidate }: { candidate: CandidateProfile }) {
-  const bgImage = PARTYLIST_TO_IMAGE[candidate.partyList]
-  const partyListIcon = PARTYLIST_TO_ICON[candidate.partyList]
-  const candidateImage = CANDIDATE_TO_IMAGE[candidate.name]
+export default function CandidatesProfileSection({
+  candidate,
+}: {
+  candidate: CandidateProfile;
+}) {
+  const bgImage = PARTYLIST_TO_IMAGE[candidate.party_list];
+  const partyListIcon = PARTYLIST_TO_ICON[candidate.party_list];
+  const candidateImage = getCandidateImage(candidate.name);
 
   return (
     <motion.section
@@ -27,23 +30,23 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
 
       {/* Profile Container */}
       <div
-        className="flex flex-col h-full lg:flex-row justify-between items-center gap-6 rounded-lg "
+        className="flex flex-col lg:flex-row justify-between items-center gap-6 rounded-lg w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         {/* Info and Banner */}
-        <div className="w-full p-6 rounded-md text-white">
+        <div className="w-full p-6 rounded-md text-white relative sm:min-h-72">
           <div className="flex items-center gap-4">
             {/* Partylist Number */}
-            <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
+            {/* <div className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[40px] font-sans font-medium text-white">
               #{candidate.partyListNumber}
-            </div>
+            </div> */}
 
             {/* Red Separator Line */}
-            <div className="w-[1px] h-6 bg-[#EF4444]" />
+            {/* <div className="w-[1px] h-6 bg-[#EF4444]" /> */}
 
             {/* Partylist Icon */}
             <Image
@@ -64,25 +67,24 @@ export default function CandidatesProfileSection({ candidate }: { candidate: Can
           </div>
 
           {/* Socials */}
-          <SocialLinks socials={candidate.socials}/>
-
+          <SocialLinks socials={candidate.social_media} />
         </div>
-      </div>
 
-      {/* Image */}
-      <Image
-        src={candidateImage}
-        width={340}
-        height={340}
-        alt={`${candidate.name}`}
-        className="absolute right-0 sm:h-auto sm:w-96 sm:-bottom-28 w-56 -bottom-24"
-      />
+        {/* Candidate Image */}
+        <Image
+          src={candidateImage}
+          width={340}
+          height={340}
+          alt={`${candidate.name}`}
+          className="w-96 h-full"
+        />
+      </div>
     </motion.section>
-  )
+  );
 }
 
-// className="absolute right-0 
+// className="absolute right-0
 // sm:h-auto sm:w-84 sm:-bottom-36
-// md:h-auto md:w-84 md:-bottom-36 
-// lg:h-auto lg:w-84 lg:-bottom-36 
+// md:h-auto md:w-84 md:-bottom-36
+// lg:h-auto lg:w-84 lg:-bottom-36
 // w-64 -bottom-24"
