@@ -47,12 +47,12 @@ export interface CandidateWithViews extends Candidate {
 
 export interface CandidateProfile extends Candidate {
   partyListNumber: number;
-  socials?:{
+  socials?: {
     facebook?: string;
     instagram?: string;
     twitter?: string;
     tiktok?: string;
-  }
+  };
 }
 
 export interface Question {
@@ -61,7 +61,7 @@ export interface Question {
   answer?: string;
 }
 
-export type StanceValue = 'yes' | 'no' | 'abstain';
+export type StanceValue = "yes" | "no" | "abstain";
 
 export interface Stance {
   emoji: string;

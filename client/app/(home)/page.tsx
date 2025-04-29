@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import CountdownSection from '@/components/home/sections/countdown'
 import ElectionTimelineSection from '@/components/home/sections/election-timeline'

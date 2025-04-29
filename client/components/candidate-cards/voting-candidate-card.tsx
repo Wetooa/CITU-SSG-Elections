@@ -1,11 +1,11 @@
 "use client";
 
-import { CANDIDATE_TO_IMAGE, PARTYLIST_TO_ICON } from "@/utils/consts";
-import ImageDiv from "../utils/image-div";
+import { getCandidateImage } from "@/lib/utils";
+import { PARTYLIST_TO_ICON } from "@/utils/consts";
+import { Candidate } from "@/utils/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Candidate } from "@/utils/types";
-import { getCandidateImage } from "@/lib/utils";
+import ImageDiv from "../utils/image-div";
 
 interface CandidateCardProps {
   index: number;
