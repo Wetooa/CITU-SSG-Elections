@@ -13,7 +13,7 @@ export const PARTYLIST_TO_ICON: Record<PartyList, string> = {
 const CANDIDATE_URL = "/candidates";
 
 export const CANDIDATE_TO_IMAGE: Record<string, string> = {
-  "Adrian Sajulga": `${CANDIDATE_URL}/LOGARTA.png`,
+  "Adrian Sajulga": `${CANDIDATE_URL}/LOGARTA.webp`,
 };
 
 export const VOTING_DATE: Date = new Date("2025-04-30T08:00:00");
