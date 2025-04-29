@@ -10,12 +10,18 @@ export const CountdownTimer = ({ time }: CountdownTimerProps) => {
   const [remaining, setRemaining] = useState(getTimeDiff(time))
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setRemaining(getTimeDiff(time))
-    }, 1000)
+    const updateRemaining = () => setRemaining(getTimeDiff(time))
+
+    updateRemaining()
+
+    const interval = setInterval(updateRemaining, 1000)
 
     return () => clearInterval(interval)
   }, [time])
+
+  if (!remaining) {
+    return null
+  }
 
   if (remaining.total <= 0) {
     return <p className="text-white text-xl">Voting has started!</p>
