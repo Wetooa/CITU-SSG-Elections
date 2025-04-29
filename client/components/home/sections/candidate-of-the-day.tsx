@@ -5,7 +5,6 @@ import { PARTYLIST_TO_IMAGE } from "@/utils/consts";
 import { Candidate } from "@/utils/types";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
