@@ -17,7 +17,8 @@ export class CourseQuestionService {
   }
 
   async findByCandidateId(candidate_id: string): Promise<CourseQuestion> {
-    const result = await this.cQuestion.findById(candidate_id).exec();
+    // const result = await this.cQuestion.findById(candidate_id).exec();
+    const result = await this.cQuestion.findOne({ candidate_id }).exec();
     if (!result) {
       throw new NotFoundException(
         `QNA not found for candidate ${candidate_id}`
