@@ -13,7 +13,8 @@ export class QNAService {
   }
 
   async findByCandidateId(candidateId: string): Promise<QNA> {
-    const result = await this.qnaModel.findById(candidateId).exec();
+    // const result = await this.qnaModel.findById(candidateId).exec();
+    const result = await this.qnaModel.findOne({ candidateId }).exec();
     if (!result) {
       throw new NotFoundException(`QNA not found for candidate ${candidateId}`);
     }

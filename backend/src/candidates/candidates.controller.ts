@@ -68,7 +68,7 @@ export class CandidatesController {
       await this.courseQuestionService.findByCandidateId(candidateId);
     if (!courseQuestions) {
       throw new NotFoundException(
-        `Course questions not found for candidate ${candidateId}`,
+        `Course questions not found for candidateajshdkjhas ${candidateId}`,
       );
     }
     return courseQuestions;
