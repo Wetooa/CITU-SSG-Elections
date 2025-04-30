@@ -1,44 +1,43 @@
-import { Question } from "@/utils/types";
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { QuestionEntry, QA } from "@/utils/types";
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+import { QuestionEntry, QA } from '@/utils/types'
 
 // FontAwesomeIcon icon={faQuestionCircle}
 export default function QuestionSection({
   generalData,
   courseData,
 }: {
-  generalData: QuestionEntry;
-  courseData: QuestionEntry;
+  generalData: QuestionEntry
+  courseData: QuestionEntry
 }) {
   const parseQA = (data: QuestionEntry): QA[] => {
-    const qas: QA[] = [];
+    const qas: QA[] = []
 
     Object.entries(data).forEach(([key, value]) => {
-      if (key.startsWith("q") && !key.includes("answer") && value?.trim()) {
-        const index = key.replace("q", "");
-        const answer = data[`answer_q${index}`]?.trim();
+      if (key.startsWith('q') && !key.includes('answer') && value?.trim()) {
+        const index = key.replace('q', '')
+        const answer = data[`answer_q${index}`]?.trim()
         if (answer) {
-          const titleSplit = value.split("|");
+          const titleSplit = value.split('|')
           qas.push({
             title: titleSplit.length > 1 ? titleSplit[0].trim() : `Question ${index}`,
             question: titleSplit.length > 1 ? titleSplit[1].trim() : value.trim(),
             answer,
-          });
+          })
         }
       }
-    });
+    })
 
-    return qas;
-  };
+    return qas
+  }
 
-  const generalQuestions = parseQA(generalData);
-  const courseQuestions = parseQA(courseData);
+  const generalQuestions = parseQA(generalData)
+  const courseQuestions = parseQA(courseData)
 
   const QuestionCard = ({ title, question, answer }: QA) => {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(false)
 
     return (
       <div className="border rounded-lg p-4 space-y-2 bg-[#3D1A1A]">
@@ -46,11 +45,8 @@ export default function QuestionSection({
           <FontAwesomeIcon icon={faQuestionCircle} className="text-2xl" />
           <h3 className="text-lg font-bold">{title}</h3>
         </div>
-        <button
-          onClick={() => setExpanded((prev) => !prev)}
-          className="flex items-center gap-2 w-full text-left"
-        >
-          <span className="text-2xl">{expanded ? "−" : "+"}</span>
+        <button onClick={() => setExpanded((prev) => !prev)} className="flex items-center gap-2 w-full text-left">
+          <span className="text-2xl">{expanded ? '−' : '+'}</span>
           <p className="font-medium">{question}</p>
         </button>
 
@@ -58,7 +54,7 @@ export default function QuestionSection({
           {expanded && answer && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
+              animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="pl-8 text-sm text-gray-300 overflow-hidden"
@@ -68,8 +64,8 @@ export default function QuestionSection({
           )}
         </AnimatePresence>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border border-red-500 rounded-lg p-4 bg-[#2A0F0F]">
@@ -91,5 +87,5 @@ export default function QuestionSection({
         </div>
       </div>
     </div>
-  );
+  )
 }
