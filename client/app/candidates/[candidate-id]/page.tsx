@@ -117,8 +117,6 @@ export default function CandidatePage() {
         );
         const data3 = await res3.json();
         setCourseJson(data3);
-
-
       } catch (error) {
         console.error("Failed to fetch candidate:", error);
       }
@@ -127,7 +125,7 @@ export default function CandidatePage() {
     if (candidateId) {
       fetchCandidate();
     }
-  }, [candidateId]);
+  }, [NEXT_PUBLIC_SERVER_LINK, candidateId]);
 
   return (
     <>
@@ -136,7 +134,9 @@ export default function CandidatePage() {
         {candidate && stances && (
           <StanceComparisonSection candidate={candidate} stances={stances} />
         )}
-        {generalJson && courseJson && <QuestionSection generalData={generalJson} courseData={courseJson} />}
+        {generalJson && courseJson && (
+          <QuestionSection generalData={generalJson} courseData={courseJson} />
+        )}
       </main>
     </>
   );

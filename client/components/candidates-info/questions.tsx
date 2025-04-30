@@ -1,4 +1,3 @@
-import { Question } from "@/utils/types";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "framer-motion";
@@ -23,8 +22,12 @@ export default function QuestionSection({
         if (answer) {
           const titleSplit = value.split("|");
           qas.push({
-            title: titleSplit.length > 1 ? titleSplit[0].trim() : `Question ${index}`,
-            question: titleSplit.length > 1 ? titleSplit[1].trim() : value.trim(),
+            title:
+              titleSplit.length > 1
+                ? titleSplit[0].trim()
+                : `Question ${index}`,
+            question:
+              titleSplit.length > 1 ? titleSplit[1].trim() : value.trim(),
             answer,
           });
         }
@@ -93,3 +96,4 @@ export default function QuestionSection({
     </div>
   );
 }
+
