@@ -70,7 +70,7 @@ export default function CandidatesPage() {
           <div>
             <Select onValueChange={setSelectedPosition}>
               <SelectTrigger className="w-full md:w-[180px]">
-                <SelectValue placeholder="Partylist" />
+                <SelectValue placeholder="Position" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value={ALL}>All</SelectItem>
@@ -88,7 +88,7 @@ export default function CandidatesPage() {
           <div>
             <Select onValueChange={setSelectedPartyList}>
               <SelectTrigger className="w-full md:w-[180px]">
-                <SelectValue placeholder="Position" />
+                <SelectValue placeholder="Partylist" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value={ALL}>All</SelectItem>
